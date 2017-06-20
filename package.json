@@ -5,8 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": " npm run build:sass && ng serve -o",
-    "build": "build:sass && ng build",
-    "test": "ng test",
+    "build": "npm run build:sass && ng build",
+    "test": "npm run build:sass && ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:sass": "node-sass src/app/todolist/scss/ -o src/app/todolist/",
