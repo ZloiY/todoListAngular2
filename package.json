@@ -8,7 +8,7 @@
     "build": "npm run build:sass && ng build",
     "test": "npm run build:sass && ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
+    "e2e": "npm run build:sass && ng e2e",
     "build:sass": "node-sass src/app/todolist/scss/ -o src/app/todolist/",
     "watch:sass": "npm run build:sass && node-sass src/app/todolist/scss/ -wo src/app/todolist"
   },
