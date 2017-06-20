@@ -1,4 +1,4 @@
-import {browser, element, by, protractor} from "protractor";
+import {browser, element, by, protractor} from 'protractor';
 
 describe('todo-list-angular2 App', () => {
 
@@ -7,7 +7,7 @@ describe('todo-list-angular2 App', () => {
   });
 
   it('should display welcome message', () => {
-    const header =element(by.css('h1')).getText();
+    const header = element(by.css('h1')).getText();
     expect(header).toEqual('Akveo ToDoList');
   });
   it('should show alert when add pressed and input empty', () => {
@@ -186,7 +186,7 @@ describe('todo-list-angular2 App', () => {
     addBtn.click();
     addBtn.click();
     addBtn.click();
-    let tasksCheck = element.all(by.css('.task-checkbox-visible'));
+    const tasksCheck = element.all(by.css('.task-checkbox-visible'));
     tasksCheck.get(0).click();
     tasksCheck.get(3).click();
     delCheckBtn.click();
@@ -195,7 +195,7 @@ describe('todo-list-angular2 App', () => {
         return elem.getText();
       });
     }
-    expect(getName()).toEqual(['task','task']);
+    expect(getName()).toEqual(['task', 'task']);
   });
   it('shouldn`t delete unchecked elements if del btn pressed', () => {
     const addBtn = element(by.css('.add-new-task-btn'));
@@ -213,6 +213,6 @@ describe('todo-list-angular2 App', () => {
         return elem.getText();
       });
     }
-    expect(getName()).toEqual(['task','task','task','task']);
+    expect(getName()).toEqual(['task', 'task', 'task', 'task']);
   });
 });

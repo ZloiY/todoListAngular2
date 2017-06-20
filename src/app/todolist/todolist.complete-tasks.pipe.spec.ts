@@ -1,8 +1,8 @@
-import {Task} from "../task";
-import {CompleteTasksPipe} from "./todolist.complete-tasks.pipe";
+import {Task} from '../task';
+import {CompleteTasksPipe} from './todolist.complete-tasks.pipe';
 
 describe('Complete tasks pipe', () => {
-  let completeTasksPipe = new CompleteTasksPipe();
+  const completeTasksPipe = new CompleteTasksPipe();
   let inputArr: Task[];
   let outputArr: Task[];
 

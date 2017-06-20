@@ -1,8 +1,8 @@
-import {Component, OnInit, ElementRef, ViewChildren, ViewChild, Renderer2} from "@angular/core";
-import {Task} from "../task";
+import {Component, OnInit, ElementRef, ViewChild, Renderer2} from '@angular/core';
+import {Task} from '../task';
 
 @Component({
-  selector: 'todolist',
+  selector: 'todo-list',
   templateUrl: './todolist.component.html',
   styleUrls: ['./todolist.component.css'],
 })
