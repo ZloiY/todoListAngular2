@@ -80,7 +80,7 @@ export class TodoListComponent implements OnInit {
   }
 
   onDelChecked() {
-    this.tasks = this.tasks.filter((task) => task.check);
+    this.tasks = this.tasks.filter((task) => !task.check);
     this.allCheckbox = false;
   }
 
