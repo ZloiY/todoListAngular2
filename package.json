@@ -4,11 +4,13 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": " watch:sass && ng serve -o",
+    "build": "build:sass && ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:sass": "node-sass src/app/todolist/scss/ -o src/app/todolist/",
+    "watch:sass": "npm run build:sass && node-sass src/app/todolist/scss/ -wo src/app/todolist"
   },
   "private": true,
   "dependencies": {
@@ -22,7 +24,9 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
     "core-js": "^2.4.1",
+    "node-sass": "^4.5.3",
     "rxjs": "^5.1.0",
+    "sass-loader": "^6.0.6",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
