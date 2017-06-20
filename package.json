@@ -6,6 +6,8 @@
     "ng": "ng",
     "start": " npm run build:sass && ng serve -o",
     "build": "npm run build:sass && ng build",
+    "prod-build": "npm run build:sass && ng build --prod --aot",
+    "prod-deploy": "npm run build:sass && ng serve --prod --aot",
     "test": "npm run build:sass && ng test",
     "lint": "ng lint",
     "e2e": "npm run build:sass && ng e2e",
