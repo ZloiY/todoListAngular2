@@ -1,11 +1,11 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 
 @Component({
-  selector: 'app-todolist-sort',
-  templateUrl: './todolist-sort.component.html',
-  styleUrls: ['../todolist.component.css']
+  selector: 'app-todo-list-sort',
+  templateUrl: 'todo-list-sort.component.html',
+  styleUrls: ['./todo-list-sort.component.css']
 })
-export class TodolistSortComponent implements OnInit {
+export class TodoListSortComponent implements OnInit {
 
   @Output() onAll = new EventEmitter();
   @Output() onActive = new EventEmitter();

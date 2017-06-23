@@ -1,9 +1,9 @@
 import {TestBed, ComponentFixture} from '@angular/core/testing';
-import {TodoListComponent} from './todolist.component';
+import {TodoListComponent} from './todo-list.component';
 import {DebugElement} from '@angular/core';
 import {By} from '@angular/platform-browser';
-import {CompleteTasksPipe} from './pipes/todolist.complete-tasks.pipe';
-import {ActiveTasksPipe} from './pipes/todolist.active-tasks.pipe';
+import {CompleteTasksPipe} from './pipes/todo-list.complete-tasks.pipe';
+import {ActiveTasksPipe} from './pipes/todo-list.active-tasks.pipe';
 describe('ToDoListComponent', () => {
 
   let testComp: TodoListComponent;

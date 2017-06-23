@@ -1,12 +1,12 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {Task} from '../../task';
+import {Task} from '../task';
 
 @Component({
-  selector: 'app-todolist-taskelement',
-  templateUrl: './todolist-taskelement.component.html',
-  styleUrls: ['../todolist.component.css']
+  selector: 'app-todo-list-task-element',
+  templateUrl: 'todo-list-task-element.component.html',
+  styleUrls: ['./todo-list-task-element.component.css']
 })
-export class TodolistTaskelementComponent {
+export class TodoListTaskElementComponent {
 
   @Input() task: Task;
   @Output() onCheck = new EventEmitter();

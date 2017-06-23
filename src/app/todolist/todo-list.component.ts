@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {Task} from '../task';
+import {Task} from './task';
 
 @Component({
-  selector: 'todo-list',
-  templateUrl: './todolist.component.html',
-  styleUrls: ['./todolist.component.css'],
+  selector: 'app-todo-list',
+  templateUrl: 'todo-list.component.html',
+  styleUrls: ['todo-list.component.css'],
 })
 
 export class TodoListComponent implements OnInit {

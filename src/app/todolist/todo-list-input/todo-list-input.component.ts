@@ -1,11 +1,11 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, Output, EventEmitter} from '@angular/core';
 
 @Component({
-  selector: 'app-todolist-input',
-  templateUrl: './todolist-input.component.html',
-  styleUrls: ['../todolist.component.css']
+  selector: 'app-todo-list-input',
+  templateUrl: 'todo-list-input.component.html',
+  styleUrls: ['./todo-list-input.component.css']
 })
-export class TodolistInputComponent {
+export class TodoListInputComponent {
 
   @Output() onAdd = new EventEmitter<string>();
 
