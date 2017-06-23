@@ -3,7 +3,7 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 @Component({
   selector: 'app-todolist-checkall-del',
   templateUrl: './todolist-checkall-del.component.html',
-  styleUrls: ['./todolist-checkall-del.component.css']
+  styleUrls: ['../todolist.component.css']
 })
 export class TodolistCheckallDelComponent implements OnInit {
 

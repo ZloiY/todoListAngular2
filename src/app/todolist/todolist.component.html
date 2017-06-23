@@ -1,21 +1,21 @@
-<div class="task-list-header">
-  <app-todolist-input (onAdd)="onAdd($event)"></app-todolist-input>
+<app-todolist-input (onAdd)="onAdd($event)"></app-todolist-input>
+<div class="scroll" *ngIf="allCheck">
+  <div class="task-list">
+    <app-todolist-taskelement *ngFor="let task of tasks" [task]="task" (onCheck)="onCheck()" (onClose)="onClose($event)"></app-todolist-taskelement>
+  </div>
+</div>
+<div class="scroll" *ngIf="completeCheck">
+  <div class="task-list">
+    <app-todolist-taskelement *ngFor="let task of (tasks | completeTasks)" [task]="task" (onCheck)="onCheck()" (onClose)="onClose($event)"></app-todolist-taskelement>
+  </div>
+</div>
+<div class="scroll" *ngIf="activeCheck">
+  <div class="task-list">
+    <app-todolist-taskelement *ngFor="let task of (tasks | activeTasks)" [task]="task" (onCheck)="onCheck()" (onClose)="onClose($event)"></app-todolist-taskelement>
+  </div>
+</div>
+<div class="footer">
+  <label class="active-tasks-label">Active tasks: {{activeItems}}</label>
   <app-todolist-sort (onAll)="onAll()" (onComplete)="onComplete()" (onActive)="onActive()"></app-todolist-sort>
-  <div class="task-list-div" *ngIf="allCheck">
-    <div class="task-list">
-      <app-todolist-taskelement class="task-element" *ngFor="let task of tasks" [task]="task" (onCheck)="onCheck()" (onClose)="onClose($event)"></app-todolist-taskelement>
-    </div>
-  </div>
-  <div class="task-list-div" *ngIf="completeCheck">
-    <div class="task-list">
-      <app-todolist-taskelement class="task-element" *ngFor="let task of (tasks | completeTasks)" [task]="task" (onCheck)="onCheck()" (onClose)="onClose($event)"></app-todolist-taskelement>
-    </div>
-  </div>
-  <div class="task-list-div" *ngIf="activeCheck">
-    <div class="task-list">
-      <app-todolist-taskelement class="task-element" *ngFor="let task of (tasks | activeTasks)" [task]="task" (onCheck)="onCheck()" (onClose)="onClose($event)"></app-todolist-taskelement>
-    </div>
-  </div>
-  <label class="active-tasks">Active tasks: {{activeItems}}</label>
   <app-todolist-checkall-del (onCheckUncheck)="onCheckUncheck($event)" (onDelChecked)="onDelChecked()"></app-todolist-checkall-del>
 </div>

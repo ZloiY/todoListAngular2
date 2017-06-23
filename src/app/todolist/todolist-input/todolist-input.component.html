@@ -1,5 +1,5 @@
-<div>
-<label>Akveo ToDoList</label>
-<input class="input-new-task" size="60" placeholder="Task name..." #newTask>
-<input  class="add-new-task-btn" type="button" value="Add" (click)="onAddBtnClick(newTask.value)" >
+<div class="input-background">
+  <label class="akveo-label">Akveo ToDoList</label>
+  <input class="input-new-task-name" size="60" placeholder="Task name..." (keyup)="onEnterPressed($event.keyCode)"  #newTask>
+  <input  class="add-task-btn" type="button" value="Add" (click)="onAddBtnClick(newTask.value)" >
 </div>

@@ -1,1 +1,7 @@
-
+.task-list-base {
+  font-family: 'MV Boli';
+  font-size: 15px;
+  font-style: normal;
+  text-align: center;
+  color: #e7e7e7;
+  background-color: rgba(191, 75, 26, 0.83); }

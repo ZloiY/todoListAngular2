@@ -4,7 +4,7 @@ import {Task} from '../../task';
 @Component({
   selector: 'app-todolist-taskelement',
   templateUrl: './todolist-taskelement.component.html',
-  styleUrls: ['./todolist-taskelement.component.css']
+  styleUrls: ['../todolist.component.css']
 })
 export class TodolistTaskelementComponent {
 
