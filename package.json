@@ -11,7 +11,11 @@
     "test": "npm run build:sass && ng test",
     "lint": "ng lint",
     "e2e": "npm run build:sass && ng e2e",
-    "build:sass": "node-sass src/app/todolist/ -o src/app/todolist/",
+    "build:sass": "node-sass src/styles.scss -o src/ && node-sass src/app/todolist/todo-list.component.scss -o src/app/todolist/ && npm run build_todo-list-checkall-del:sass && npm run build_todo-list-input:sass && npm run build_todo-list-sort:sass && npm run build_todo-list-task-element:sass",
+    "build_todo-list-checkall-del:sass": "node-sass src/app/todolist/todo-list-checkall-del/todo-list-checkall-del.component.scss -o src/app/todolist/todo-list-checkall-del/",
+    "build_todo-list-input:sass": "node-sass src/app/todolist/todo-list-input/todo-list-input.component.scss -o src/app/todolist/todo-list-input/",
+    "build_todo-list-sort:sass": "node-sass src/app/todolist/todo-list-sort/todo-list-sort.component.scss -o src/app/todolist/todo-list-sort",
+    "build_todo-list-task-element:sass": "node-sass src/app/todolist/todo-list-task-element/todo-list-task-element.component.scss -o src/app/todolist/todo-list-task-element",
     "watch:sass": "npm run build:sass && node-sass src/app/todolist/scss/ -wo src/app/todolist"
   },
   "private": true,
