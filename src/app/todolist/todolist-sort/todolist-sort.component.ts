@@ -1,4 +1,4 @@
-import {Component, OnInit, Renderer2, ElementRef, ViewChild, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-todolist-sort',
@@ -10,31 +10,29 @@ export class TodolistSortComponent implements OnInit {
   @Output() onAll = new EventEmitter();
   @Output() onActive = new EventEmitter();
   @Output() onComplete = new  EventEmitter();
-  @ViewChild('allTasks') allTasks: ElementRef;
-  @ViewChild('completeTasks') completeTasks: ElementRef;
-  @ViewChild('activeTasks') activeTasks: ElementRef;
-
-  constructor(private rd: Renderer2) { }
+  completeChecked: boolean;
+  activeChecked: boolean;
+  allChecked: boolean;
 
   onAllClick() {
+    this.completeChecked = false;
+    this.activeChecked = false;
+    this.allChecked = true;
     this.onAll.emit();
-    this.rd.addClass(this.allTasks.nativeElement, 'radio-btn-label-selected');
-    this.rd.removeClass(this.completeTasks.nativeElement, 'radio-btn-label-selected');
-    this.rd.removeClass(this.activeTasks.nativeElement, 'radio-btn-label-selected');
   }
 
   onCompleteClick() {
+    this.completeChecked = true;
+    this.activeChecked = false;
+    this.allChecked = false;
     this.onComplete.emit();
-    this.rd.addClass(this.completeTasks.nativeElement, 'radio-btn-label-selected');
-    this.rd.removeClass(this.allTasks.nativeElement, 'radio-btn-label-selected');
-    this.rd.removeClass(this.activeTasks.nativeElement, 'radio-btn-label-selected');
   }
 
   onActiveClick() {
+    this.completeChecked = false;
+    this.activeChecked = true;
+    this.allChecked = false;
     this.onActive.emit();
-    this.rd.addClass(this.activeTasks.nativeElement, 'radio-btn-label-selected');
-    this.rd.removeClass(this.allTasks.nativeElement, 'radio-btn-label-selected');
-    this.rd.removeClass(this.completeTasks.nativeElement, 'radio-btn-label-selected');
   }
 
   ngOnInit() {

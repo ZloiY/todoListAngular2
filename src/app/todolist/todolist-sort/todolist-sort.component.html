@@ -1,5 +1,8 @@
 <div class="radio-btns-group">
-  <input class="radio-btn" type="radio" name="sort" checked="checked" id="All"><label class="radio-btn-label" for="All" (click)="onAllClick()" #allTasks>All</label>
-  <input class="radio-btn" type="radio" name="sort" id="Complete"><label class="radio-btn-label" for="Complete" (click)="onCompleteClick()" #completeTasks>Complete</label>
-  <input class="radio-btn" type="radio" name="sort" id="Active"><label class="radio-btn-label" for="Active" (click)="onActiveClick()" #activeTasks>Active</label>
+  <input class="radio-btn" type="radio" name="sort" checked="checked" id="All">
+  <label [ngClass]="allChecked ? 'radio-btn-label-selected' : 'radio-btn-label'" for="All" (click)="onAllClick()">All</label>
+  <input class="radio-btn" type="radio" name="sort" id="Complete">
+  <label [ngClass]="completeChecked ? 'radio-btn-label-selected' : 'radio-btn-label'"  for="Complete" (click)="onCompleteClick()">Complete</label>
+  <input class="radio-btn" type="radio" name="sort" id="Active">
+  <label [ngClass]="activeChecked ? 'radio-btn-label-selected' : 'radio-btn-label'"  for="Active" (click)="onActiveClick()">Active</label>
 </div>
