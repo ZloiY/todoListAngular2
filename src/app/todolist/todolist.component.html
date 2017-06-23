@@ -1,40 +1,21 @@
 <div class="task-list-header">
-  <h1>Akveo ToDoList</h1>
-  <input class="input-new-task" size="100" placeholder="Task name..." #newTask>
-  <input  class="add-new-task-btn" type="button" value="Add" (click)="onAddBtnClick(newTask.value)" >
-  <div>
-    <input class="group-radio-btn" type="radio" name="sort" checked="checked" id="All"><label class="radio-btn-label" for="All" (click)="onAllClick()" #allTasks>All</label>
-    <input class="group-radio-btn" type="radio" name="sort" id="Complete"><label class="radio-btn-label" for="Complete" (click)="onCompleteClick()" #completeTasks>Complete</label>
-    <input class="group-radio-btn" type="radio" name="sort" id="Active"><label class="radio-btn-label" for="Active" (click)="onActiveClick()" #activeTasks>Active</label>
-  </div>
+  <app-todolist-input (onAdd)="onAdd($event)"></app-todolist-input>
+  <app-todolist-sort (onAll)="onAll()" (onComplete)="onComplete()" (onActive)="onActive()"></app-todolist-sort>
   <div class="task-list-div" *ngIf="allCheck">
-    <ul class="task-list">
-      <li class="task-element" *ngFor="let task of tasks">
-        <input class="task-checkbox-visible" type="checkbox" [checked]="task.check" (click)="onCheckClick(task, taskCheck.checked)" #taskCheck>
-        <span class="task-visible">{{task.name}}</span>
-        <input class="task-close-btn" type="button" value="x" (click)="onCloseClick(task)">
-      </li>
-    </ul>
+    <div class="task-list">
+      <app-todolist-taskelement class="task-element" *ngFor="let task of tasks" [task]="task" (onCheck)="onCheck()" (onClose)="onClose($event)"></app-todolist-taskelement>
+    </div>
   </div>
   <div class="task-list-div" *ngIf="completeCheck">
-    <ul class="task-list">
-      <li class="task-element" *ngFor="let task of (tasks | completeTasks)">
-        <input class="task-checkbox-visible" type="checkbox" [checked]="task.check" (click)="onCheckClick(task, taskCheck.checked)" #taskCheck>
-        <span class="task-visible">{{task.name}}</span>
-        <input class="task-close-btn" type="button" value="x" (click)="onCloseClick(task)">
-      </li>
-    </ul>
+    <div class="task-list">
+      <app-todolist-taskelement class="task-element" *ngFor="let task of (tasks | completeTasks)" [task]="task" (onCheck)="onCheck()" (onClose)="onClose($event)"></app-todolist-taskelement>
+    </div>
   </div>
   <div class="task-list-div" *ngIf="activeCheck">
-    <ul class="task-list">
-      <li class="task-element" *ngFor="let task of (tasks | activeTasks)">
-        <input class="task-checkbox-visible" type="checkbox" (click)="onCheckClick(task, taskCheck.checked)" #taskCheck>
-        <span class="task-visible">{{task.name}}</span>
-        <input class="task-close-btn" type="button" value="x" (click)="onCloseClick(task)">
-      </li>
-    </ul>
+    <div class="task-list">
+      <app-todolist-taskelement class="task-element" *ngFor="let task of (tasks | activeTasks)" [task]="task" (onCheck)="onCheck()" (onClose)="onClose($event)"></app-todolist-taskelement>
+    </div>
   </div>
   <label class="active-tasks">Active tasks: {{activeItems}}</label>
-  <input class="check-uncheck-btn" type="button" value="Check/Uncheck All" (click)="onCheckUncheck()">
-  <input class="del-checked-btn" type="button" value="Delete complete tasks" (click)="onDelChecked()">
+  <app-todolist-checkall-del (onCheckUncheck)="onCheckUncheck($event)" (onDelChecked)="onDelChecked()"></app-todolist-checkall-del>
 </div>
