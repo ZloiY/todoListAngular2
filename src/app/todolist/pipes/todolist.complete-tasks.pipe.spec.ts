@@ -1,4 +1,4 @@
-import {Task} from '../task';
+import {Task} from '../../task';
 import {CompleteTasksPipe} from './todolist.complete-tasks.pipe';
 
 describe('Complete tasks pipe', () => {
