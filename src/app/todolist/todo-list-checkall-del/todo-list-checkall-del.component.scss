@@ -1,0 +1,75 @@
+$textColor: rgb(231, 231, 231);
+$backgroundColor: rgba(191, 75, 26, 0.83);
+$btnBackgroundHoverColor: #527df4;
+$inputBackgroundColor: rgb(50, 69, 133);
+$footerBackgroundColor: rgb(50, 69, 133);
+$btnsColor: rgb(52, 80, 146);
+$shadowColor: rgba(18, 33, 36, 0.89);
+$scrollBarCollor: rgb(123, 123, 123);
+$cursorType: pointer;
+
+@mixin btn-text-style {
+  font: {
+    family: 'MV Boli';
+    size: 15px;
+    style: normal;
+  }
+}
+
+@mixin btn-normal-shadow {
+  -webkit-box-shadow: 3px 1px 5px $shadowColor;
+}
+
+@mixin btn-normal-style {
+  border: hidden;
+  cursor: $cursorType;
+  background-color: $btnsColor;
+  @include btn-normal-shadow;
+  color: $textColor;
+}
+
+@mixin btn-hover-shadow {
+  -webkit-box-shadow: 4px 2px 4px $shadowColor;
+}
+
+@mixin btn-hover-style {
+  color: $textColor;
+  background-color: $btnBackgroundHoverColor;
+  @include btn-hover-shadow;
+}
+
+@mixin  btn-active-shadow {
+  -webkit-box-shadow: inset 2px 1px 4px $shadowColor;
+}
+
+@mixin btn-active-style {
+  color: $btnsColor;
+  background-color: $textColor;
+  @include btn-active-shadow;
+}
+
+.footerBtns {
+  float: right;
+  padding: 12px;
+}
+
+.check-uncheck-btn,
+.del-checked-btn {
+  @include btn-text-style;
+  @include btn-normal-style;
+  padding: 8px 12px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: $cursorType;
+  border: hidden;
+}
+
+.check-uncheck-btn:hover,
+.del-checked-btn:hover {
+  @include btn-hover-style;
+}
+
+.check-uncheck-btn:active,
+.del-checked-btn:active {
+  @include btn-active-style;
+}

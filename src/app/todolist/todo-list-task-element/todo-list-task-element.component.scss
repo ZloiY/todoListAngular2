@@ -1,0 +1,153 @@
+$textColor: rgb(231, 231, 231);
+$backgroundColor: rgba(191, 75, 26, 0.83);
+$btnBackgroundHoverColor: #527df4;
+$inputBackgroundColor: rgb(50, 69, 133);
+$footerBackgroundColor: rgb(50, 69, 133);
+$btnsColor: rgb(52, 80, 146);
+$shadowColor: rgba(18, 33, 36, 0.89);
+$scrollBarCollor: rgb(123, 123, 123);
+$cursorType: pointer;
+
+@mixin text-style {
+  font: {
+    family: 'Calibri Light';
+    size: 18px;
+    style: normal;
+  }
+}
+
+@mixin btn-text-style {
+  font: {
+    family: 'MV Boli';
+    size: 15px;
+    style: normal;
+  }
+}
+
+@mixin border-style {
+  border: {
+    color: transparent;
+    style: solid;
+    radius: 20px;
+    width: 1px;
+  }
+}
+
+@mixin btn-normal-shadow {
+  -webkit-box-shadow: 3px 1px 5px $shadowColor;
+}
+
+@mixin btn-normal-style {
+  border: hidden;
+  cursor: $cursorType;
+  background-color: $btnsColor;
+  @include btn-normal-shadow;
+  color: $textColor;
+}
+
+@mixin btn-hover-shadow {
+  -webkit-box-shadow: 4px 2px 4px $shadowColor;
+}
+
+@mixin btn-hover-style {
+  color: $textColor;
+  background-color: $btnBackgroundHoverColor;
+  @include btn-hover-shadow;
+}
+
+@mixin  btn-active-shadow {
+  -webkit-box-shadow: inset 2px 1px 4px $shadowColor;
+}
+
+@mixin btn-active-style {
+  color: $btnsColor;
+  background-color: $textColor;
+  @include btn-active-shadow;
+}
+
+.task-name {
+  display: inline;
+  position: fixed;
+  left: 50%;
+  right: 50%;
+  margin-top: 10px;
+  text-decoration: none;
+  user-select: none;
+}
+
+.task-name-complete {
+  display: inline;
+  position: fixed;
+  left: 50%;
+  right: 50%;
+  margin-top: 10px;
+  text-decoration: line-through;
+  user-select: none;
+}
+
+.task-close-btn {
+  @include btn-text-style;
+  @include btn-normal-style;
+  @include border-style;
+  cursor: $cursorType;
+  margin-top: 5px;
+  position: fixed;
+  right: 25%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 7px;
+  padding-left: 7px;
+  display: inline;
+}
+
+.task-close-btn:hover {
+  @include btn-hover-style;
+}
+
+.task-close-btn:active {
+  @include btn-active-style;
+}
+
+.task-list-element {
+  display: block;
+  text-align: center;
+  color: $textColor;
+  height: 45px;
+  border-bottom: 1px solid $inputBackgroundColor;
+}
+
+.task-list-element:hover {
+  background-color: $backgroundColor;
+  border-bottom-color: $backgroundColor;
+  -webkit-box-shadow: 3px 2px 5px $shadowColor;
+}
+
+.task-checkbox {
+  @include border-style;
+  cursor: $cursorType;
+  visibility: visible;
+  display: inline;
+  position: relative;
+  top: 15%;
+  right: 35%;
+  pointer-events: none;
+  -webkit-appearance: none;
+  -webkit-box-shadow: 2px 1px 7px $shadowColor;
+  background-color: $btnsColor;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.task-checkbox:checked {
+  @include btn-active-style;
+}
+
+.task-checkbox:checked:after {
+  content: '\2714';
+  top: 3px;
+  font-size: 16px;
+  position: absolute;
+  left: 3px;
+}

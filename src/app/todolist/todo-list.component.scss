@@ -1,0 +1,72 @@
+$textColor: rgb(231, 231, 231);
+$inputBackgroundColor: rgb(50, 69, 133);
+$footerBackgroundColor: rgb(50, 69, 133);
+$shadowColor: rgba(18, 33, 36, 0.89);
+
+@mixin btn-text-style {
+  font: {
+    family: 'MV Boli';
+    size: 15px;
+    style: normal;
+  }
+}
+
+@mixin text-style {
+  font: {
+    family: 'Calibri Light';
+    size: 18px;
+    style: normal;
+  }
+}
+
+.active-tasks-label {
+  @include text-style;
+  float: left;
+  padding-top: 20px;
+  padding-left: 20px;
+  color: $textColor;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.task-list {
+  @include btn-text-style;
+  list-style: none;
+  text-align: center;
+  position: relative;
+  color: $textColor;
+  width: 70%;
+  left: 15%;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+  background-color: $footerBackgroundColor;
+  -webkit-box-shadow: 0 -2px 7px $shadowColor;
+}
+
+.scroll {
+  margin-top: 80px;
+  padding-bottom: 50px;
+  min-height: 800px;
+  max-height: 800px;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: $inputBackgroundColor;
+}

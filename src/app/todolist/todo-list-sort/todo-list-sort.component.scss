@@ -1,0 +1,94 @@
+$textColor: rgb(231, 231, 231);
+$backgroundColor: rgba(191, 75, 26, 0.83);
+$btnBackgroundHoverColor: #527df4;
+$inputBackgroundColor: rgb(50, 69, 133);
+$footerBackgroundColor: rgb(50, 69, 133);
+$btnsColor: rgb(52, 80, 146);
+$shadowColor: rgba(18, 33, 36, 0.89);
+$scrollBarCollor: rgb(123, 123, 123);
+$cursorType: pointer;
+
+@mixin btn-text-style {
+  font: {
+    family: 'MV Boli';
+    size: 15px;
+    style: normal;
+  }
+}
+
+@mixin border-style {
+  border: {
+    color: transparent;
+    style: solid;
+    radius: 20px;
+    width: 1px;
+  }
+}
+
+@mixin btn-normal-shadow {
+  -webkit-box-shadow: 3px 1px 5px $shadowColor;
+}
+
+@mixin btn-normal-style {
+  border: hidden;
+  cursor: $cursorType;
+  background-color: $btnsColor;
+  @include btn-normal-shadow;
+  color: $textColor;
+}
+
+@mixin btn-hover-shadow {
+  -webkit-box-shadow: 4px 2px 4px $shadowColor;
+}
+
+@mixin btn-hover-style {
+  color: $textColor;
+  background-color: $btnBackgroundHoverColor;
+  @include btn-hover-shadow;
+}
+
+@mixin  btn-active-shadow {
+  -webkit-box-shadow: inset 2px 1px 4px $shadowColor;
+}
+
+@mixin btn-active-style {
+  color: $btnsColor;
+  background-color: $textColor;
+  @include btn-active-shadow;
+}
+
+.radio-btn {
+  cursor: $cursorType;
+  display: none;
+  visibility: visible;
+}
+
+.radio-btns-group {
+  position: absolute;
+  margin-top: 25px;
+  margin-left: 45%;
+}
+
+.radio-btn-label {
+  @include btn-text-style;
+  @include border-style;
+  @include btn-normal-style;
+  padding: 5px;
+  cursor: $cursorType;
+}
+
+.radio-btn-label:hover {
+  @include btn-hover-style;
+}
+
+.radio-btn-label:active {
+  @include btn-active-style;
+}
+
+.radio-btn-label-selected {
+  @include btn-text-style;
+  @include border-style;
+  @include btn-active-style;
+  cursor: default;
+  padding: 5px;
+}
