@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {Task} from '../../task';
 
 @Component({
@@ -12,13 +12,13 @@ export class TodolistTaskelementComponent {
   @Output() onCheck = new EventEmitter();
   @Output() onClose = new EventEmitter<Task>();
 
-  onCheckClick(task: Task, checked: boolean) {
-    task.check = checked;
-    this.onCheck.emit();
-  }
-
   onCloseClick(closeTask: Task) {
     this.onClose.emit(closeTask);
+  }
+
+  toggleCheck(task: Task) {
+    task.check = !task.check;
+    this.onCheck.emit();
   }
 
 }
