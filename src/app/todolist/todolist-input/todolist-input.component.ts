@@ -8,7 +8,6 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 export class TodolistInputComponent {
 
   @Output() onAdd = new EventEmitter<string>();
-  taskName: string;
 
   onAddBtnClick(taskName) {
     if (taskName.length === 0) {
@@ -18,9 +17,9 @@ export class TodolistInputComponent {
     this.onAdd.emit(taskName);
   }
 
-  onEnterPressed(keyCode) {
-    if (keyCode === 13) {
-      this.onAddBtnClick(this.taskName)
+  onEnterPressed(event) {
+    if (event.keyCode === 13) {
+      this.onAddBtnClick((<HTMLInputElement>event.target).value);
     }
   }
 
