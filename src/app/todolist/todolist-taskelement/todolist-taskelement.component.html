@@ -1,0 +1,5 @@
+<div>
+  <input class="task-checkbox-visible" type="checkbox" [checked]="task.check" (click)="onCheckClick(task, taskCheck.checked)" #taskCheck>
+  <span class="task-visible">{{task.name}}</span><!--
+  --><input class="task-close-btn" type="button" value="x" (click)="onCloseClick(task)">
+</div>
