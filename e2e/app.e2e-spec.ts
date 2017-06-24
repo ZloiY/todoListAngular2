@@ -7,11 +7,11 @@ describe('todo-list-angular2 App', () => {
   });
 
   it('should display welcome message', () => {
-    const header = element(by.css('h1')).getText();
+    const header = element(by.css('.akveo-label')).getText();
     expect(header).toEqual('Akveo ToDoList');
   });
   it('should show alert when add pressed and input empty', () => {
-    const addBtn = element(by.css('.add-new-task-btn'));
+    const addBtn = element(by.css('.add-task-btn'));
     const EC = protractor.ExpectedConditions;
     addBtn.click();
     browser.wait(EC.alertIsPresent(), 400, 'You must entry task name.');
@@ -19,26 +19,26 @@ describe('todo-list-angular2 App', () => {
     });
   });
   it('should increase item counter by one if item added', () => {
-    const addBtn = element(by.css('.add-new-task-btn'));
-    const input = element(by.css('.input-new-task'));
-    const activeItems = element(by.css('.active-tasks'));
+    const addBtn = element(by.css('.add-task-btn'));
+    const input = element(by.css('.input-new-task-name'));
+    const activeItems = element(by.css('.active-tasks-label'));
     input.sendKeys('task');
     addBtn.click();
     expect(activeItems.getText()).toBe('Active tasks: 1');
   });
   it('should decrease active items when checkbox checked', () => {
-    const addBtn = element(by.css('.add-new-task-btn'));
-    const input = element(by.css('.input-new-task'));
-    const activeItems = element(by.css('.active-tasks'));
+    const addBtn = element(by.css('.add-task-btn'));
+    const input = element(by.css('.input-new-task-name'));
+    const activeItems = element(by.css('.active-tasks-label'));
     input.sendKeys('task');
     addBtn.click();
-    element(by.css('.task-checkbox-visible')).click();
+    element(by.css('.task-list-element')).click();
     expect(activeItems.getText()).toBe('Active tasks: 0');
   });
   it('should decrease active items if task delete and checkbox unchecked', () => {
-    const addBtn = element(by.css('.add-new-task-btn'));
-    const input = element(by.css('.input-new-task'));
-    const activeItems = element(by.css('.active-tasks'));
+    const addBtn = element(by.css('.add-task-btn'));
+    const input = element(by.css('.input-new-task-name'));
+    const activeItems = element(by.css('.active-tasks-label'));
     input.sendKeys('task');
     addBtn.click();
     const closeBtn = element(by.css('.task-close-btn'));
@@ -46,12 +46,12 @@ describe('todo-list-angular2 App', () => {
     expect(activeItems.getText()).toBe('Active tasks: 0');
   });
   it('shouldn`t decrease active items more if checkbox checked and close btn clicked', () => {
-    const addBtn = element(by.css('.add-new-task-btn'));
-    const input = element(by.css('.input-new-task'));
-    const activeItems = element(by.css('.active-tasks'));
+    const addBtn = element(by.css('.add-task-btn'));
+    const input = element(by.css('.input-new-task-name'));
+    const activeItems = element(by.css('.active-tasks-label'));
     input.sendKeys('task');
     addBtn.click();
-    const tasksCheck = element(by.css('.task-checkbox-visible'));
+    const tasksCheck = element(by.css('.task-list-element'));
     tasksCheck.click();
     expect(activeItems.getText()).toBe('Active tasks: 0');
     const closeBtn = element(by.css('.task-close-btn'));
@@ -59,9 +59,9 @@ describe('todo-list-angular2 App', () => {
     expect(activeItems.getText()).toBe('Active tasks: 0');
   });
   it('should check all items when button pressed first time and active items must be equal 0', () => {
-    const addBtn = element(by.css('.add-new-task-btn'));
-    const input = element(by.css('.input-new-task'));
-    const activeItems = element(by.css('.active-tasks'));
+    const addBtn = element(by.css('.add-task-btn'));
+    const input = element(by.css('.input-new-task-name'));
+    const activeItems = element(by.css('.active-tasks-label'));
     const checkUncheckBtn = element(by.css('.check-uncheck-btn'));
     input.sendKeys('task');
     addBtn.click();
@@ -69,7 +69,7 @@ describe('todo-list-angular2 App', () => {
     addBtn.click();
     addBtn.click();
     checkUncheckBtn.click();
-    const tasksCheck = element(by.css('.task-checkbox-visible'));
+    const tasksCheck = element(by.css('.task-checkbox'));
     function checkChecks() {
       for (let checkId = 0; checkId < tasksCheck.length; checkId += 1) {
         if (tasksCheck[checkId] !== true) {
@@ -82,9 +82,9 @@ describe('todo-list-angular2 App', () => {
     expect(activeItems.getText()).toBe('Active tasks: 0');
   });
   it('should uncheck all if check/uncheck button pressed again', () => {
-    const addBtn = element(by.css('.add-new-task-btn'));
-    const input = element(by.css('.input-new-task'));
-    const activeItems = element(by.css('.active-tasks'));
+    const addBtn = element(by.css('.add-task-btn'));
+    const input = element(by.css('.input-new-task-name'));
+    const activeItems = element(by.css('.active-tasks-label'));
     const checkUncheckBtn = element(by.css('.check-uncheck-btn'));
     input.sendKeys('task');
     addBtn.click();
@@ -93,7 +93,7 @@ describe('todo-list-angular2 App', () => {
     addBtn.click();
     checkUncheckBtn.click();
     checkUncheckBtn.click();
-    const tasksCheck = element(by.css('.task-checkbox-visible'));
+    const tasksCheck = element(by.css('.task-checkbox'));
     function checkChecks() {
       for (let checkId = 0; checkId < tasksCheck.length; checkId += 1) {
         if (tasksCheck[checkId] !== false) {
@@ -106,13 +106,13 @@ describe('todo-list-angular2 App', () => {
     expect(activeItems.getText()).toBe('Active tasks: 4');
   });
   it('should check all elements if one of them already checked', () => {
-    const addBtn = element(by.css('.add-new-task-btn'));
-    const input = element(by.css('.input-new-task'));
-    const activeItems = element(by.css('.active-tasks'));
+    const addBtn = element(by.css('.add-task-btn'));
+    const input = element(by.css('.input-new-task-name'));
+    const activeItems = element(by.css('.active-tasks-label'));
     const checkUncheckBtn = element(by.css('.check-uncheck-btn'));
     input.sendKeys('task');
     addBtn.click();
-    element(by.css('.task-checkbox-visible')).click();
+    element(by.css('.task-list-element')).click();
     addBtn.click();
     addBtn.click();
     addBtn.click();
@@ -131,9 +131,9 @@ describe('todo-list-angular2 App', () => {
     expect(activeItems.getText()).toBe('Active tasks: 0');
   });
   it('should uncheck all elements if check/uncheck btn pressed and one of them is uncheck', () => {
-    const addBtn = element(by.css('.add-new-task-btn'));
-    const input = element(by.css('.input-new-task'));
-    const activeItems = element(by.css('.active-tasks'));
+    const addBtn = element(by.css('.add-task-btn'));
+    const input = element(by.css('.input-new-task-name'));
+    const activeItems = element(by.css('.active-tasks-label'));
     const checkUncheckBtn = element(by.css('.check-uncheck-btn'));
     input.sendKeys('task');
     addBtn.click();
@@ -141,7 +141,7 @@ describe('todo-list-angular2 App', () => {
     addBtn.click();
     addBtn.click();
     checkUncheckBtn.click();
-    const tasksCheck = element.all(by.css('.task-checkbox-visible'));
+    const tasksCheck = element.all(by.css('.task-list-element'));
     tasksCheck.get(1).click();
     checkUncheckBtn.click();
     function checkChecks() {
@@ -157,8 +157,8 @@ describe('todo-list-angular2 App', () => {
     expect(activeItems.getText()).toBe('Active tasks: 4');
   });
   it('should delete all checked item if del btn pressed', () => {
-    const addBtn = element(by.css('.add-new-task-btn'));
-    const input = element(by.css('.input-new-task'));
+    const addBtn = element(by.css('.add-task-btn'));
+    const input = element(by.css('.input-new-task-name'));
     const checkUncheckBtn = element(by.css('.check-uncheck-btn'));
     const delCheckBtn = element(by.css('.del-checked-btn'));
     const tasks = element.all(by.css('.tasks .name'));
@@ -177,16 +177,16 @@ describe('todo-list-angular2 App', () => {
     expect(getName()).toEqual([]);
   });
   it('should delete only checked items if del btn pressed', () => {
-    const addBtn = element(by.css('.add-new-task-btn'));
-    const input = element(by.css('.input-new-task'));
+    const addBtn = element(by.css('.add-task-btn'));
+    const input = element(by.css('.input-new-task-name'));
     const delCheckBtn = element(by.css('.del-checked-btn'));
-    const tasks = element.all(by.css('.task-visible'));
+    const tasks = element.all(by.css('.task-list-element'));
     input.sendKeys('task');
     addBtn.click();
     addBtn.click();
     addBtn.click();
     addBtn.click();
-    const tasksCheck = element.all(by.css('.task-checkbox-visible'));
+    const tasksCheck = element.all(by.css('.task-list-element'));
     tasksCheck.get(0).click();
     tasksCheck.get(3).click();
     delCheckBtn.click();
@@ -198,10 +198,10 @@ describe('todo-list-angular2 App', () => {
     expect(getName()).toEqual(['task', 'task']);
   });
   it('shouldn`t delete unchecked elements if del btn pressed', () => {
-    const addBtn = element(by.css('.add-new-task-btn'));
-    const input = element(by.css('.input-new-task'));
+    const addBtn = element(by.css('.add-task-btn'));
+    const input = element(by.css('.input-new-task-name'));
     const delCheckBtn = element(by.css('.del-checked-btn'));
-    const tasks = element.all(by.css('.task-visible'));
+    const tasks = element.all(by.css('.task-list-element'));
     input.sendKeys('task');
     addBtn.click();
     addBtn.click();
