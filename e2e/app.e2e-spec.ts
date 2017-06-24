@@ -63,10 +63,13 @@ describe('todo-list-angular2 App', () => {
     const input = element(by.css('.input-new-task-name'));
     const activeItems = element(by.css('.active-tasks-label'));
     const checkUncheckBtn = element(by.css('.check-uncheck-btn'));
-    input.sendKeys('task');
+    input.sendKeys('task1');
     addBtn.click();
+    input.sendKeys('task2');
     addBtn.click();
+    input.sendKeys('task3');
     addBtn.click();
+    input.sendKeys('task4');
     addBtn.click();
     checkUncheckBtn.click();
     const tasksCheck = element(by.css('.task-checkbox'));
@@ -86,10 +89,13 @@ describe('todo-list-angular2 App', () => {
     const input = element(by.css('.input-new-task-name'));
     const activeItems = element(by.css('.active-tasks-label'));
     const checkUncheckBtn = element(by.css('.check-uncheck-btn'));
-    input.sendKeys('task');
+    input.sendKeys('task1');
     addBtn.click();
+    input.sendKeys('task2');
     addBtn.click();
+    input.sendKeys('task3');
     addBtn.click();
+    input.sendKeys('task4');
     addBtn.click();
     checkUncheckBtn.click();
     checkUncheckBtn.click();
@@ -110,11 +116,14 @@ describe('todo-list-angular2 App', () => {
     const input = element(by.css('.input-new-task-name'));
     const activeItems = element(by.css('.active-tasks-label'));
     const checkUncheckBtn = element(by.css('.check-uncheck-btn'));
-    input.sendKeys('task');
+    input.sendKeys('task1');
     addBtn.click();
     element(by.css('.task-list-element')).click();
+    input.sendKeys('task2');
     addBtn.click();
+    input.sendKeys('task3');
     addBtn.click();
+    input.sendKeys('task4');
     addBtn.click();
     checkUncheckBtn.click();
     const tasksCheck = element.all(by.css('.check-uncheck-btn'));
@@ -135,10 +144,13 @@ describe('todo-list-angular2 App', () => {
     const input = element(by.css('.input-new-task-name'));
     const activeItems = element(by.css('.active-tasks-label'));
     const checkUncheckBtn = element(by.css('.check-uncheck-btn'));
-    input.sendKeys('task');
+    input.sendKeys('task1');
     addBtn.click();
+    input.sendKeys('task2');
     addBtn.click();
+    input.sendKeys('task3');
     addBtn.click();
+    input.sendKeys('task4');
     addBtn.click();
     checkUncheckBtn.click();
     const tasksCheck = element.all(by.css('.task-list-element'));
@@ -162,10 +174,13 @@ describe('todo-list-angular2 App', () => {
     const checkUncheckBtn = element(by.css('.check-uncheck-btn'));
     const delCheckBtn = element(by.css('.del-checked-btn'));
     const tasks = element.all(by.css('.tasks .name'));
-    input.sendKeys('task');
+    input.sendKeys('task1');
     addBtn.click();
+    input.sendKeys('task2');
     addBtn.click();
+    input.sendKeys('task3');
     addBtn.click();
+    input.sendKeys('task4');
     addBtn.click();
     function getName() {
       return tasks.map((elem) => {
@@ -181,10 +196,13 @@ describe('todo-list-angular2 App', () => {
     const input = element(by.css('.input-new-task-name'));
     const delCheckBtn = element(by.css('.del-checked-btn'));
     const tasks = element.all(by.css('.task-list-element'));
-    input.sendKeys('task');
+    input.sendKeys('task1');
     addBtn.click();
+    input.sendKeys('task2');
     addBtn.click();
+    input.sendKeys('task3');
     addBtn.click();
+    input.sendKeys('task4');
     addBtn.click();
     const tasksCheck = element.all(by.css('.task-list-element'));
     tasksCheck.get(0).click();
@@ -195,17 +213,20 @@ describe('todo-list-angular2 App', () => {
         return elem.getText();
       });
     }
-    expect(getName()).toEqual(['task', 'task']);
+    expect(getName()).toEqual(['task2', 'task3']);
   });
   it('shouldn`t delete unchecked elements if del btn pressed', () => {
     const addBtn = element(by.css('.add-task-btn'));
     const input = element(by.css('.input-new-task-name'));
     const delCheckBtn = element(by.css('.del-checked-btn'));
     const tasks = element.all(by.css('.task-list-element'));
-    input.sendKeys('task');
+    input.sendKeys('task1');
     addBtn.click();
+    input.sendKeys('task2');
     addBtn.click();
+    input.sendKeys('task3');
     addBtn.click();
+    input.sendKeys('task4');
     addBtn.click();
     delCheckBtn.click();
     function getName() {
@@ -213,6 +234,6 @@ describe('todo-list-angular2 App', () => {
         return elem.getText();
       });
     }
-    expect(getName()).toEqual(['task', 'task', 'task', 'task']);
+    expect(getName()).toEqual(['task1', 'task2', 'task3', 'task4']);
   });
 });
