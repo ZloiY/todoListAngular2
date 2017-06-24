@@ -9,17 +9,19 @@ export class TodoListInputComponent {
 
   @Output() onAdd = new EventEmitter<string>();
 
-  onAddBtnClick(taskName) {
-    if (taskName.length === 0) {
+  onAddBtnClick(taskInput) {
+    let taskName = (<HTMLInputElement>taskInput);
+    if (taskName.value === '') {
       alert('You must entry task name.');
       return;
     }
-    this.onAdd.emit(taskName);
+    this.onAdd.emit(taskName.value);
+    taskName.value = '';
   }
 
   onEnterPressed(event) {
     if (event.keyCode === 13) {
-      this.onAddBtnClick((<HTMLInputElement>event.target).value);
+      this.onAddBtnClick((<HTMLInputElement>event.target));
     }
   }
 
