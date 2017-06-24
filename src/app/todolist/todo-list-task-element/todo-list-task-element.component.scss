@@ -151,3 +151,7 @@ $cursorType: pointer;
   position: absolute;
   left: 3px;
 }
+
+input:focus {
+  outline: none;
+}
