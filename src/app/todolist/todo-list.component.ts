@@ -69,6 +69,9 @@ export class TodoListComponent implements OnInit {
 
   ngOnInit() {
     this.tasks = [];
+    this.allCheck = false;
+    this.completeCheck = false;
+    this.activeCheck = false;
     this.getActiveTasks();
   }
 

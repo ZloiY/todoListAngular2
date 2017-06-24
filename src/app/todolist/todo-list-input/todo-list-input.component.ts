@@ -10,7 +10,7 @@ export class TodoListInputComponent {
   @Output() onAdd = new EventEmitter<string>();
 
   onAddBtnClick(taskInput) {
-    let taskName = (<HTMLInputElement>taskInput);
+    const taskName = (<HTMLInputElement>taskInput);
     if (taskName.value === '') {
       alert('You must entry task name.');
       return;

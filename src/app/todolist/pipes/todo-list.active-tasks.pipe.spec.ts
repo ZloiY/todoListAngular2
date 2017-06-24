@@ -1,5 +1,5 @@
 import { ActiveTasksPipe } from './todo-list.active-tasks.pipe';
-import { Task }            from '../task';
+import { Task } from '../task';
 
 describe('Active tasks pipe', () => {
   const activeTasksPipe = new ActiveTasksPipe();
