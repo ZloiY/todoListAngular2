@@ -1,10 +1,20 @@
 import {Component, OnInit} from '@angular/core';
 import {Task} from './task';
+import {style, animate, transition, state, trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: 'todo-list.component.html',
   styleUrls: ['todo-list.component.css'],
+  animations: [
+    trigger('shrinkOut', [
+      state('shrink', style({height: '*'})),
+      transition('void => *', [
+        style({height: 0}),
+        animate(450, style({height: '*'}))
+      ]),
+    ])
+  ]
 })
 
 export class TodoListComponent implements OnInit {
