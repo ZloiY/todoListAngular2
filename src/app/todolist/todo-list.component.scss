@@ -1,12 +1,11 @@
 $textColor: rgb(231, 231, 231);
-$inputBackgroundColor: rgb(50, 69, 133);
-$footerBackgroundColor: rgb(50, 69, 133);
+$backgroundColor: rgba(170, 184, 192, 0.56);
 $shadowColor: rgba(18, 33, 36, 0.89);
 
-@mixin btn-text-style {
+@mixin task-list-text-style {
   font: {
     family: 'MV Boli';
-    size: 15px;
+    size: 17px;
     style: normal;
   }
 }
@@ -14,8 +13,17 @@ $shadowColor: rgba(18, 33, 36, 0.89);
 @mixin text-style {
   font: {
     family: 'Calibri Light';
-    size: 18px;
+    size: 20px;
     style: normal;
+  }
+}
+
+@mixin border-style {
+  border: {
+    color: transparent;
+    style: solid;
+    width: 1px;
+    top-color: $textColor;
   }
 }
 
@@ -30,31 +38,30 @@ $shadowColor: rgba(18, 33, 36, 0.89);
 }
 
 .task-list {
-  @include btn-text-style;
+  @include task-list-text-style;
   list-style: none;
   text-align: center;
   position: relative;
-  color: $textColor;
   width: 70%;
   left: 15%;
+  background-color: $backgroundColor;
 }
 
 .footer {
+  @include border-style;
   position: fixed;
   bottom: 0;
   left: 0;
   z-index: 1;
   width: 100%;
   text-align: center;
-  background-color: $footerBackgroundColor;
-  -webkit-box-shadow: 0 -2px 7px $shadowColor;
 }
 
 .scroll {
   margin-top: 80px;
   padding-bottom: 50px;
-  min-height: 800px;
-  max-height: 800px;
+  min-height: 750px;
+  max-height: 750px;
   overflow-y: auto;
 }
 
@@ -68,5 +75,5 @@ $shadowColor: rgba(18, 33, 36, 0.89);
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: $inputBackgroundColor;
+  background-color: $backgroundColor;
 }

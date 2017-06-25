@@ -10,8 +10,8 @@ $cursorType: pointer;
 
 @mixin btn-text-style {
   font: {
-    family: 'MV Boli';
-    size: 15px;
+    family: 'Calibri Light';
+    size: 17px;
     style: normal;
   }
 }
@@ -21,10 +21,9 @@ $cursorType: pointer;
 }
 
 @mixin btn-normal-style {
-  border: hidden;
+  border: 1px solid transparent;
   cursor: $cursorType;
-  background-color: $btnsColor;
-  @include btn-normal-shadow;
+  background-color: transparent;
   color: $textColor;
 }
 
@@ -33,9 +32,7 @@ $cursorType: pointer;
 }
 
 @mixin btn-hover-style {
-  color: $textColor;
-  background-color: $btnBackgroundHoverColor;
-  @include btn-hover-shadow;
+  border-color: $textColor;
 }
 
 @mixin  btn-active-shadow {
@@ -43,8 +40,8 @@ $cursorType: pointer;
 }
 
 @mixin btn-active-style {
-  color: $btnsColor;
-  background-color: $textColor;
+  background-color: transparent;
+  border-color: transparent;
   @include btn-active-shadow;
 }
 
@@ -61,7 +58,6 @@ $cursorType: pointer;
   text-decoration: none;
   display: inline-block;
   cursor: $cursorType;
-  border: hidden;
 }
 
 .check-uncheck-btn:hover,
@@ -72,4 +68,7 @@ $cursorType: pointer;
 .check-uncheck-btn:active,
 .del-checked-btn:active {
   @include btn-active-style;
+}
+input:focus {
+  outline: none;
 }

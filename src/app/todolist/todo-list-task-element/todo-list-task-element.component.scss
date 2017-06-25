@@ -26,9 +26,8 @@ $cursorType: pointer;
 
 @mixin border-style {
   border: {
-    color: transparent;
+    color: $textColor;
     style: solid;
-    radius: 20px;
     width: 1px;
   }
 }
@@ -38,11 +37,9 @@ $cursorType: pointer;
 }
 
 @mixin btn-normal-style {
-  border: hidden;
   cursor: $cursorType;
-  background-color: $btnsColor;
-  @include btn-normal-shadow;
-  color: $textColor;
+  background-color: transparent;
+  color: transparent;
 }
 
 @mixin btn-hover-shadow {
@@ -51,8 +48,7 @@ $cursorType: pointer;
 
 @mixin btn-hover-style {
   color: $textColor;
-  background-color: $btnBackgroundHoverColor;
-  @include btn-hover-shadow;
+  background-color: transparent;
 }
 
 @mixin  btn-active-shadow {
@@ -60,8 +56,8 @@ $cursorType: pointer;
 }
 
 @mixin btn-active-style {
-  color: $btnsColor;
-  background-color: $textColor;
+  color: $textColor;
+  border-color: transparent;
   @include btn-active-shadow;
 }
 
@@ -79,33 +75,28 @@ $cursorType: pointer;
   display: inline;
   position: fixed;
   left: 50%;
-  right: 50%;
-  margin-top: 10px;
+  right: 50%;  margin-top: 10px;
   text-decoration: line-through;
   user-select: none;
 }
 
 .task-close-btn {
-  @include btn-text-style;
-  @include btn-normal-style;
-  @include border-style;
+  border: 1px solid transparent;
+  background-color: transparent;
+  background-image: url('http://localhost:4200/assets/trashcan_blue_close.png');
+  background-repeat: no-repeat;
   cursor: $cursorType;
+  right: 5%;
   margin-top: 5px;
   position: fixed;
-  right: 25%;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  padding-right: 7px;
-  padding-left: 7px;
+  padding: 9px 16px;
   display: inline;
 }
 
 .task-close-btn:hover {
   @include btn-hover-style;
-}
-
-.task-close-btn:active {
-  @include btn-active-style;
+  background: url('http://localhost:4200/assets/trashcan_blue_open.png');
+  background-repeat: no-repeat;
 }
 
 .task-list-element {
@@ -113,43 +104,41 @@ $cursorType: pointer;
   text-align: center;
   color: $textColor;
   height: 45px;
-  border-bottom: 1px solid $inputBackgroundColor;
+  border: 1px solid transparent;
+  border-bottom: 1px solid $textColor;
 }
 
 .task-list-element:hover {
-  background-color: $backgroundColor;
-  border-bottom-color: $backgroundColor;
-  -webkit-box-shadow: 3px 2px 5px $shadowColor;
+  background-color: transparent;
+  @include border-style;
+}
+
+.task-list-element:active {
+  @include btn-active-style;
 }
 
 .task-checkbox {
-  @include border-style;
+  border-color: transparent;
   cursor: $cursorType;
   visibility: visible;
   display: inline;
   position: relative;
-  top: 15%;
+  top: 24%;
   right: 35%;
   pointer-events: none;
   -webkit-appearance: none;
-  -webkit-box-shadow: 2px 1px 7px $shadowColor;
-  background-color: $btnsColor;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
+  background-image: url('http://localhost:4200/assets/empty_check.png');
+  padding: 9px 16px;
 }
 
 .task-checkbox:checked {
-  @include btn-active-style;
+  top: 15%;
+  background-image: none;
 }
 
 .task-checkbox:checked:after {
-  content: '\2714';
-  top: 3px;
-  font-size: 16px;
-  position: absolute;
-  left: 3px;
+  content: url('http://localhost:4200/assets/check_check.png');
+  padding: 9px 16px;
 }
 
 input:focus {

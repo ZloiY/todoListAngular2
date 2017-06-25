@@ -14,7 +14,7 @@
     <app-todo-list-task-element *ngFor="let task of (tasks | activeTasks)" [task]="task" (onCheck)="onCheck()" (onClose)="onClose($event)"></app-todo-list-task-element>
   </div>
 </div>
-<div [@shrinkOut]="'shrink'" class="footer">
+<div class="footer">
   <label class="active-tasks-label">Active tasks: {{activeItems}}</label>
   <app-todo-list-sort (onAll)="onAll()" (onComplete)="onComplete()" (onActive)="onActive()"></app-todo-list-sort>
   <app-todo-list-checkall-del (onCheckUncheck)="onCheckUncheck($event)" (onDelChecked)="onDelChecked()"></app-todo-list-checkall-del>

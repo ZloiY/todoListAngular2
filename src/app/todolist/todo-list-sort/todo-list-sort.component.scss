@@ -5,22 +5,21 @@ $inputBackgroundColor: rgb(50, 69, 133);
 $footerBackgroundColor: rgb(50, 69, 133);
 $btnsColor: rgb(52, 80, 146);
 $shadowColor: rgba(18, 33, 36, 0.89);
-$scrollBarCollor: rgb(123, 123, 123);
+$btnActiveColor: rgba(174, 68, 4, 0.89);
 $cursorType: pointer;
 
 @mixin btn-text-style {
   font: {
-    family: 'MV Boli';
-    size: 15px;
+    family: 'Calibri Light';
+    size: 17px;
     style: normal;
   }
 }
 
 @mixin border-style {
   border: {
-    color: transparent;
+    color: $textColor;
     style: solid;
-    radius: 20px;
     width: 1px;
   }
 }
@@ -32,8 +31,7 @@ $cursorType: pointer;
 @mixin btn-normal-style {
   border: hidden;
   cursor: $cursorType;
-  background-color: $btnsColor;
-  @include btn-normal-shadow;
+  background-color: transparent;
   color: $textColor;
 }
 
@@ -43,8 +41,7 @@ $cursorType: pointer;
 
 @mixin btn-hover-style {
   color: $textColor;
-  background-color: $btnBackgroundHoverColor;
-  @include btn-hover-shadow;
+  @include border-style;
 }
 
 @mixin  btn-active-shadow {
@@ -52,9 +49,8 @@ $cursorType: pointer;
 }
 
 @mixin btn-active-style {
-  color: $btnsColor;
+  color: $btnActiveColor;
   background-color: $textColor;
-  @include btn-active-shadow;
 }
 
 .radio-btn {
@@ -72,8 +68,8 @@ $cursorType: pointer;
 
 .radio-btn-label {
   @include btn-text-style;
-  @include border-style;
   @include btn-normal-style;
+  border: 1px solid transparent;
   padding: 5px;
   cursor: $cursorType;
 }
@@ -84,6 +80,7 @@ $cursorType: pointer;
 
 .radio-btn-label:active {
   @include btn-active-style;
+  -webkit-box-shadow: inset 2px 1px 4px $shadowColor;
 }
 
 .radio-btn-label-selected {

@@ -1,7 +1,7 @@
 $textColor: rgb(231, 231, 231);
 $backgroundColor: rgba(191, 75, 26, 0.83);
 $btnBackgroundHoverColor: #527df4;
-$inputBackgroundColor: rgb(50, 69, 133);
+$inputBackgroundColor: rgba(50, 69, 133, 0);
 $footerBackgroundColor: rgb(50, 69, 133);
 $btnsColor: rgb(52, 80, 146);
 $shadowColor: rgba(18, 33, 36, 0.89);
@@ -11,15 +11,16 @@ $cursorType: pointer;
 @mixin text-style {
   font: {
     family: 'Calibri Light';
-    size: 18px;
+    size: 20px;
     style: normal;
   }
+  color: rgba(174, 68, 4, 0.89)
 }
 
 @mixin btn-text-style {
   font: {
-    family: 'MV Boli';
-    size: 15px;
+    family: 'Calibri Light';
+    size: 17px;
     style: normal;
   }
 }
@@ -31,8 +32,7 @@ $cursorType: pointer;
 @mixin btn-normal-style {
   border: hidden;
   cursor: $cursorType;
-  background-color: $btnsColor;
-  @include btn-normal-shadow;
+  background-color: transparent;
   color: $textColor;
 }
 
@@ -42,17 +42,15 @@ $cursorType: pointer;
 
 @mixin btn-hover-style {
   color: $textColor;
-  background-color: $btnBackgroundHoverColor;
-  @include btn-hover-shadow;
+  border: 1px solid $textColor;
 }
 
 @mixin  btn-active-shadow {
+  border-color: transparent;
   -webkit-box-shadow: inset 2px 1px 4px $shadowColor;
 }
 
 @mixin btn-active-style {
-  color: $btnsColor;
-  background-color: $textColor;
   @include btn-active-shadow;
 }
 
@@ -63,7 +61,7 @@ $cursorType: pointer;
   left: 0;
   z-index: 1;
   width: 100%;
-  background-color: $inputBackgroundColor;
+  background-color: transparent;
   -webkit-box-shadow: 0 2px 7px $shadowColor;
 }
 
@@ -74,7 +72,9 @@ $cursorType: pointer;
 }
 
 .input-new-task-name {
-  @include btn-text-style;
+  font-family: 'MV Boli';
+  font-size: 15px;
+  font-style: normal;
   border: hidden;
   background-color: $inputBackgroundColor;
   color: $textColor;
@@ -102,7 +102,7 @@ input:focus {
 .add-task-btn {
   @include btn-text-style;
   @include btn-normal-style;
-  border: hidden;
+  border-color: transparent;
   width: 60px;
   padding: 3px;
 }
