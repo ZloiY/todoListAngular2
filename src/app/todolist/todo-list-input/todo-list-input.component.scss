@@ -30,7 +30,7 @@ $cursorType: pointer;
 }
 
 @mixin btn-normal-style {
-  border: hidden;
+  border: 1px solid transparent;
   cursor: $cursorType;
   background-color: transparent;
   color: $textColor;
@@ -41,8 +41,7 @@ $cursorType: pointer;
 }
 
 @mixin btn-hover-style {
-  color: $textColor;
-  border: 1px solid $textColor;
+  border-color: $textColor;
 }
 
 @mixin  btn-active-shadow {
