@@ -125,11 +125,11 @@ $cursorType: pointer;
   visibility: visible;
   display: inline;
   position: relative;
-  top: 24%;
+  top: 19%;
   right: 35%;
   pointer-events: none;
   -webkit-appearance: none;
-  background-image: url('http://localhost:4200/assets/empty_check.png');
+  background: url('http://localhost:4200/assets/empty_check.png');
   padding: 9px 16px;
 }
 
@@ -138,8 +138,19 @@ $cursorType: pointer;
   background-image: none;
 }
 
+@keyframes check-animation {
+  0% {content: url('http://localhost:4200/assets/empty_check.png');}
+  15% {content: url('http://localhost:4200/assets/check_check_animation_2.png');}
+  30% {content: url('http://localhost:4200/assets/check_check_animation_3.png');}
+  50% {content: url('http://localhost:4200/assets/check_check_animation_4.png');}
+  75% {content: url('http://localhost:4200/assets/check_check_animation_5.png');}
+  100% {content: url('http://localhost:4200/assets/check_check.png');}
+}
+
 .task-checkbox:checked:after {
   content: url('http://localhost:4200/assets/check_check.png');
+  animation-name: check-animation;
+  animation-duration: 200ms;
   padding: 9px 16px;
 }
 
