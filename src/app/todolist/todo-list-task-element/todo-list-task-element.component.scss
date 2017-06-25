@@ -82,9 +82,10 @@ $cursorType: pointer;
 
 .task-close-btn {
   border: 1px solid transparent;
+  background: url('http://localhost:4200/assets/trashcan_close.png');
   background-color: transparent;
-  background-image: url('http://localhost:4200/assets/trashcan_blue_close.png');
   background-repeat: no-repeat;
+  background-size: 32px 32px;
   cursor: $cursorType;
   right: 5%;
   margin-top: 5px;
@@ -95,7 +96,8 @@ $cursorType: pointer;
 
 .task-close-btn:hover {
   @include btn-hover-style;
-  background: url('http://localhost:4200/assets/trashcan_blue_open.png');
+  background: url('http://localhost:4200/assets/trashcan_open.png');
+  background-size: 32px 32px;
   background-repeat: no-repeat;
 }
 
