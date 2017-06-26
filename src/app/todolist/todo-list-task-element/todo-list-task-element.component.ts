@@ -5,7 +5,7 @@ import {trigger, state, style, transition, animate, keyframes} from "@angular/an
 @Component({
   selector: 'app-todo-list-task-element',
   templateUrl: 'todo-list-task-element.component.html',
-  styleUrls: ['./todo-list-task-element.component.css'],
+  styleUrls: ['./todo-list-task-element.component.scss'],
   animations: [
     trigger('flyInOut', [
       state('in', style({transform: 'translateX(0) scale(1)'})),

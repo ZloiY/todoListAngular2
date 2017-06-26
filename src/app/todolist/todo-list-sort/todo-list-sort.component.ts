@@ -3,7 +3,7 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 @Component({
   selector: 'app-todo-list-sort',
   templateUrl: 'todo-list-sort.component.html',
-  styleUrls: ['./todo-list-sort.component.css']
+  styleUrls: ['./todo-list-sort.component.scss']
 })
 export class TodoListSortComponent implements OnInit {
 
