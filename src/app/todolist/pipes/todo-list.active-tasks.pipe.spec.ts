@@ -10,17 +10,17 @@ describe('Active tasks pipe', () => {
     inputArr = [
       {
         name: 'task1',
-        check: false,
+        task_check: false,
       },
       {
         name: 'task2',
-        check: true,
+        task_check: true,
       }
     ];
     outputArr = [
       {
         name: 'task1',
-        check: false,
+        task_check: false,
       }
     ];
     expect(activeTasksPipe.transform(inputArr)).toEqual(outputArr);

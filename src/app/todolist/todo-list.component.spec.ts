@@ -45,7 +45,7 @@ describe('ToDoListComponent', () => {
     expect(element.textContent).toEqual('All');
   });
   it('should button value equal to `Check/Uncheck All`', () => {
-    debug = fixture.debugElement.query(By.css('.check-uncheck-btn'));
+    debug = fixture.debugElement.query(By.css('.task_check-uncheck-btn'));
     inputElement = debug.nativeElement;
     expect(inputElement.value).toEqual('Check/Uncheck All');
   });

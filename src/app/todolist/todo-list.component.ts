@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Task} from './task';
-import {style, animate, transition, state, trigger} from "@angular/animations";
+import { Component, OnInit } from '@angular/core';
+import { Task } from './task';
+import { TasksService } from "./tasks.service";
 
 @Component({
   selector: 'app-todo-list',
@@ -16,13 +16,15 @@ export class TodoListComponent implements OnInit {
   activeCheck: boolean;
   completeCheck: boolean;
 
+  constructor(private tasksService: TasksService,){}
+
   onAdd(newTask: string): void {
-    this.task = {
-      name: newTask,
-      check: false,
-    };
-    this.tasks.push(this.task);
-    this.getActiveTasks();
+    this.tasksService
+      .addTask(newTask)
+      .then(task => {
+        this.tasks.push(task);
+        this.getActiveTasks();
+      });
   }
 
   onAll() {
@@ -43,37 +45,48 @@ export class TodoListComponent implements OnInit {
     this.activeCheck = true;
   }
 
-  onCheck() {
-    this.getActiveTasks();
+  onCheck(task: Task) {
+    this.tasksService
+      .updateTask(task)
+      .then(() => this.getActiveTasks());
   }
 
   onClose(closeTask: Task) {
-    this.tasks = this.tasks.filter((task) => task !== closeTask);
-    this.getActiveTasks();
+    this.tasksService
+      .deleteTask(closeTask.id)
+      .then(() => {
+      this.tasks = this.tasks.filter((task) => task !== closeTask);
+      this.getActiveTasks();
+    });
   }
 
   onCheckUncheck(allCheckbox: boolean) {
     this.tasks.forEach((task) => {
-      task.check = !allCheckbox;
+      task.task_check = !allCheckbox;
+      this.tasksService
+        .updateTask(task)
+        .then(() => this.getActiveTasks());
     });
-    this.getActiveTasks();
   }
 
   onDelChecked() {
-    this.tasks = this.tasks.filter((task) => !task.check);
+    this.tasks = this.tasks.filter((task) => !task.task_check);
   }
 
   getActiveTasks() {
-    const activeTasks = this.tasks.filter((task) => !task.check);
+    const activeTasks = this.tasks.filter((task) => !task.task_check);
     this.activeItems = activeTasks.length;
   }
 
   ngOnInit() {
     this.tasks = [];
-    this.allCheck = false;
-    this.completeCheck = false;
-    this.activeCheck = false;
-    this.getActiveTasks();
+    this.tasksService
+      .getTasks()
+      .then(tasks => {
+        this.tasks = tasks;
+        this.getActiveTasks();
+      });
+    this.onAll();
   }
 
 }

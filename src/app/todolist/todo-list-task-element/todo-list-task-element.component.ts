@@ -31,7 +31,7 @@ import {trigger, state, style, transition, animate, keyframes} from "@angular/an
 export class TodoListTaskElementComponent {
 
   @Input() task: Task;
-  @Output() onCheck = new EventEmitter();
+  @Output() onCheck = new EventEmitter<Task>();
   @Output() onClose = new EventEmitter<Task>();
   isClicked: string;
 
@@ -40,8 +40,8 @@ export class TodoListTaskElementComponent {
   }
 
   toggleCheck(task: Task) {
-    task.check = !task.check;
-    task.check ? this.isClicked = 'jump' : this.isClicked = '';
-    this.onCheck.emit();
+    task.task_check = !task.task_check;
+    task.task_check ? this.isClicked = 'jump' : this.isClicked = '';
+    this.onCheck.emit(task);
   }
 }

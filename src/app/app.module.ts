@@ -1,10 +1,12 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ActiveTasksPipe } from './todolist/pipes/todo-list.active-tasks.pipe';
 import { CompleteTasksPipe } from './todolist/pipes/todo-list.complete-tasks.pipe';
+import { TasksService } from "./todolist/tasks.service";
 import { TodoListComponent } from './todolist/todo-list.component';
 import { TodoListInputComponent } from './todolist/todo-list-input/todo-list-input.component';
 import { TodoListSortComponent } from './todolist/todo-list-sort/todo-list-sort.component';
@@ -24,9 +26,10 @@ import { TodoListCheckallDelComponent } from './todolist/todo-list-checkall-del/
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [TasksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,17 +1,17 @@
 <app-todo-list-input (onAdd)="onAdd($event)"></app-todo-list-input>
 <div class="scroll" *ngIf="allCheck">
   <div class="task-list">
-    <app-todo-list-task-element *ngFor="let task of tasks" [task]="task" (onCheck)="onCheck()" (onClose)="onClose($event)"></app-todo-list-task-element>
+    <app-todo-list-task-element *ngFor="let task of tasks" [task]="task" (onCheck)="onCheck($event)" (onClose)="onClose($event)"></app-todo-list-task-element>
   </div>
 </div>
 <div class="scroll" *ngIf="completeCheck">
   <div class="task-list">
-    <app-todo-list-task-element *ngFor="let task of (tasks | completeTasks)" [task]="task" (onCheck)="onCheck()" (onClose)="onClose($event)"></app-todo-list-task-element>
+    <app-todo-list-task-element *ngFor="let task of (tasks | completeTasks)" [task]="task" (onCheck)="onCheck($event)" (onClose)="onClose($event)"></app-todo-list-task-element>
   </div>
 </div>
 <div class="scroll" *ngIf="activeCheck">
   <div class="task-list">
-    <app-todo-list-task-element *ngFor="let task of (tasks | activeTasks)" [task]="task" (onCheck)="onCheck()" (onClose)="onClose($event)"></app-todo-list-task-element>
+    <app-todo-list-task-element *ngFor="let task of (tasks | activeTasks)" [task]="task" (onCheck)="onCheck($event)" (onClose)="onClose($event)"></app-todo-list-task-element>
   </div>
 </div>
 <div class="footer">

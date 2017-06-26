@@ -8,6 +8,6 @@ import { Task } from '../task';
 export class CompleteTasksPipe implements PipeTransform {
 
   transform(tasks: Task[]) {
-      return tasks.filter((task) => task.check);
+      return tasks.filter((task) => task.task_check);
   }
 }

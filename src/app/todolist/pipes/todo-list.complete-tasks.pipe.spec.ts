@@ -10,17 +10,17 @@ describe('Complete tasks pipe', () => {
     inputArr = [
       {
         name: 'task1',
-        check: false,
+        task_check: false,
       },
       {
         name: 'task2',
-        check: true,
+        task_check: true,
       }
     ];
     outputArr = [
       {
         name: 'task2',
-        check: true,
+        task_check: true,
       }
     ];
     expect(completeTasksPipe.transform(inputArr)).toEqual(outputArr);

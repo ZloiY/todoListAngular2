@@ -1,4 +1,5 @@
 export  class Task {
-  name: string;
-  check: boolean;
+  id: number;
+  task_name: string;
+  task_check: boolean;
 }
