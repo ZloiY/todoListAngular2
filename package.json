@@ -10,7 +10,7 @@
     "prod-deploy": "ng serve --prod --aot",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "npm run build:sass && ng e2e"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
