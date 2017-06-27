@@ -1,0 +1,10 @@
+<div>
+  <h1>Welcome to greatest to do list!</h1>
+  <div>
+    <label>Enter login and password</label>
+    <input placeholder="Login" #login>
+    <input placeholder="Password" #password>
+    <input type="button" value="Login" (click)="logging(login.value, password.value)">
+    <input type="button" value="Registration" (click)="registration(login.value, password.value)">
+  </div>
+</div>
