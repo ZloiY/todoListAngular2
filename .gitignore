@@ -5,11 +5,11 @@
 /tmp
 /out-tsc
 /src/styles.css
-src/app/sort/todo-list-sort.component.css
+src/app/todo-list/sort/todo-list-sort.component.css
 src/app/todo-list/todo-list.component.css
-src/app/input/todo-list-input.component.css
-src/app/checkall-del/todo-list-checkall-del.component.css
-src/app/task/todo-list-task-element.component.css
+src/app/todo-list/input/todo-list-input.component.css
+src/app/todo-list/checkall-del/todo-list-checkall-del.component.css
+src/app/todo-list/task/todo-list-task-element.component.css
 
 # dependencies
 /node_modules
