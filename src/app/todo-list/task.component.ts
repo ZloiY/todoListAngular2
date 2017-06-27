@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Task } from '../task';
+import { Task } from './task';
 import { trigger, state, style, transition, animate, keyframes } from "@angular/animations";
 
 @Component({
@@ -40,8 +40,8 @@ export class TodoListTaskElementComponent {
   }
 
   toggleCheck(task: Task) {
-    task.check = !task.check;
-    task.check ? this.isClicked = 'jump' : this.isClicked = '';
+    task.complete = !task.complete;
+    task.complete ? this.isClicked = 'jump' : this.isClicked = '';
     this.onCheck.emit(task);
   }
 }

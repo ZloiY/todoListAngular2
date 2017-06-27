@@ -27,7 +27,7 @@ export class TasksService {
     const task = {
       id: 0,
       name: taskName,
-      check: false,
+      complete: false,
     };
     return this.http
       .post(this.taskUrl, JSON.stringify(task), {headers: this.headers})
