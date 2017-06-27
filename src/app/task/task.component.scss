@@ -82,7 +82,7 @@ $cursorType: pointer;
 
 .task-close-btn {
   border: 1px solid transparent;
-  background: url('http://localhost:4200/assets/trashcan_close.png');
+  background: url('http://localhost:4200/assets/trashcan.png');
   background-color: transparent;
   background-repeat: no-repeat;
   background-size: 32px 32px;
@@ -96,7 +96,7 @@ $cursorType: pointer;
 
 .task-close-btn:hover {
   @include btn-hover-style;
-  background: url('http://localhost:4200/assets/trashcan_open.png');
+  background: url('http://localhost:4200/assets/trashcan_hover.png');
   background-size: 32px 32px;
   background-repeat: no-repeat;
 }
@@ -129,7 +129,7 @@ $cursorType: pointer;
   right: 35%;
   pointer-events: none;
   -webkit-appearance: none;
-  background: url('http://localhost:4200/assets/empty_check.png');
+  background: url('http://localhost:4200/assets/check_unchecked.png');
   padding: 9px 16px;
 }
 
@@ -139,16 +139,16 @@ $cursorType: pointer;
 }
 
 @keyframes check-animation {
-  0% {content: url('http://localhost:4200/assets/empty_check.png');}
-  15% {content: url('http://localhost:4200/assets/check_check_animation_2.png');}
-  30% {content: url('http://localhost:4200/assets/check_check_animation_3.png');}
-  50% {content: url('http://localhost:4200/assets/check_check_animation_4.png');}
-  75% {content: url('http://localhost:4200/assets/check_check_animation_5.png');}
-  100% {content: url('http://localhost:4200/assets/check_check.png');}
+  0% {content: url('http://localhost:4200/assets/check_unchecked.png');}
+  15% {content: url('http://localhost:4200/assets/check_checked_animation_1.png');}
+  30% {content: url('http://localhost:4200/assets/check_checked_animation_2.png');}
+  50% {content: url('http://localhost:4200/assets/check_checked_animation_3.png');}
+  75% {content: url('http://localhost:4200/assets/check_checked_animation_4.png');}
+  100% {content: url('http://localhost:4200/assets/check_checked.png');}
 }
 
 .task-checkbox:checked:after {
-  content: url('http://localhost:4200/assets/check_check.png');
+  content: url('http://localhost:4200/assets/check_checked.png');
   animation-name: check-animation;
   animation-duration: 200ms;
   padding: 9px 16px;

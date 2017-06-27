@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TodoListTaskElementComponent } from './todo-list-task-element.component';
+import { TodoListTaskElementComponent } from './task.component';
 
 describe('TodoListTaskElementComponent', () => {
   let component: TodoListTaskElementComponent;

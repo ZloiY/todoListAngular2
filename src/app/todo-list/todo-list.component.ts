@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Task } from './task';
-import { TasksService } from "./tasks.service";
+
+import { Task } from '../task';
+import { TasksService } from '../tasks.service';
 
 @Component({
-  selector: 'app-todo-list',
+  selector: 'todo-list',
   templateUrl: 'todo-list.component.html',
   styleUrls: ['todo-list.component.scss'],
 })
@@ -16,7 +17,7 @@ export class TodoListComponent implements OnInit {
   activeCheck: boolean;
   completeCheck: boolean;
 
-  constructor(private tasksService: TasksService,){}
+  constructor(private tasksService: TasksService,) {}
 
   onAdd(newTask: string): void {
     this.tasksService
@@ -62,7 +63,7 @@ export class TodoListComponent implements OnInit {
 
   onCheckUncheck(allCheckbox: boolean) {
     this.tasks.forEach((task) => {
-      task.task_check = !allCheckbox;
+      task.check = !allCheckbox;
       this.tasksService
         .updateTask(task)
         .then(() => this.getActiveTasks());
@@ -70,11 +71,11 @@ export class TodoListComponent implements OnInit {
   }
 
   onDelChecked() {
-    this.tasks = this.tasks.filter((task) => !task.task_check);
+    this.tasks = this.tasks.filter((task) => !task.check);
   }
 
   getActiveTasks() {
-    const activeTasks = this.tasks.filter((task) => !task.task_check);
+    const activeTasks = this.tasks.filter((task) => !task.check);
     this.activeItems = activeTasks.length;
   }
 

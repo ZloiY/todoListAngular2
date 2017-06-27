@@ -1,9 +1,9 @@
 import {Component, Output, EventEmitter} from '@angular/core';
 
 @Component({
-  selector: 'app-todo-list-input',
-  templateUrl: 'todo-list-input.component.html',
-  styleUrls: ['./todo-list-input.component.scss'],
+  selector: 'tdlist-input',
+  templateUrl: 'input.component.html',
+  styleUrls: ['input.component.scss'],
 })
 export class TodoListInputComponent {
 

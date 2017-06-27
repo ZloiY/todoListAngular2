@@ -2,8 +2,8 @@ import {TestBed, ComponentFixture} from '@angular/core/testing';
 import {TodoListComponent} from './todo-list.component';
 import {DebugElement} from '@angular/core';
 import {By} from '@angular/platform-browser';
-import {CompleteTasksPipe} from './pipes/todo-list.complete-tasks.pipe';
-import {ActiveTasksPipe} from './pipes/todo-list.active-tasks.pipe';
+import {CompleteTasksPipe} from '../complete-tasks.pipe';
+import {ActiveTasksPipe} from '../active-tasks.pipe';
 describe('ToDoListComponent', () => {
 
   let testComp: TodoListComponent;
@@ -45,7 +45,7 @@ describe('ToDoListComponent', () => {
     expect(element.textContent).toEqual('All');
   });
   it('should button value equal to `Check/Uncheck All`', () => {
-    debug = fixture.debugElement.query(By.css('.task_check-uncheck-btn'));
+    debug = fixture.debugElement.query(By.css('.check-uncheck-btn'));
     inputElement = debug.nativeElement;
     expect(inputElement.value).toEqual('Check/Uncheck All');
   });

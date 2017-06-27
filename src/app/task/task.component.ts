@@ -1,11 +1,11 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {Task} from '../task';
-import {trigger, state, style, transition, animate, keyframes} from "@angular/animations";
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Task } from '../task';
+import { trigger, state, style, transition, animate, keyframes } from "@angular/animations";
 
 @Component({
-  selector: 'app-todo-list-task-element',
-  templateUrl: 'todo-list-task-element.component.html',
-  styleUrls: ['./todo-list-task-element.component.scss'],
+  selector: 'tdlist-task',
+  templateUrl: 'task.component.html',
+  styleUrls: ['task.component.scss'],
   animations: [
     trigger('flyInOut', [
       state('in', style({transform: 'translateX(0) scale(1)'})),
@@ -40,8 +40,8 @@ export class TodoListTaskElementComponent {
   }
 
   toggleCheck(task: Task) {
-    task.task_check = !task.task_check;
-    task.task_check ? this.isClicked = 'jump' : this.isClicked = '';
+    task.check = !task.check;
+    task.check ? this.isClicked = 'jump' : this.isClicked = '';
     this.onCheck.emit(task);
   }
 }

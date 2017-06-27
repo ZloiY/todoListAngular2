@@ -1,5 +1,5 @@
-import { ActiveTasksPipe } from './todo-list.active-tasks.pipe';
-import { Task } from '../task';
+import { ActiveTasksPipe } from './active-tasks.pipe';
+import { Task } from './task';
 
 describe('Active tasks pipe', () => {
   const activeTasksPipe = new ActiveTasksPipe();
@@ -9,18 +9,21 @@ describe('Active tasks pipe', () => {
   it('should contain `task1', () => {
     inputArr = [
       {
+        id: 1,
         name: 'task1',
-        task_check: false,
+        check: false,
       },
       {
+        id: 2,
         name: 'task2',
-        task_check: true,
+        check: true,
       }
     ];
     outputArr = [
       {
+        id: 1,
         name: 'task1',
-        task_check: false,
+        check: false,
       }
     ];
     expect(activeTasksPipe.transform(inputArr)).toEqual(outputArr);

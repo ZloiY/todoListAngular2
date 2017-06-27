@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TodoListCheckallDelComponent } from './todo-list-checkall-del.component';
+import { TodoListCheckallDelComponent } from './checkall-del.component';
 
 describe('TodoListCheckallDelComponent', () => {
   let component: TodoListCheckallDelComponent;

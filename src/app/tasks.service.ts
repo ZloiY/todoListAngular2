@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Http, Headers} from '@angular/http';
+import { Http, Headers } from '@angular/http';
+
 import 'rxjs/add/operator/toPromise';
 
 import { Task } from './task';
@@ -25,8 +26,8 @@ export class TasksService {
   addTask(taskName: string): Promise<Task> {
     const task = {
       id: 0,
-      task_name: taskName,
-      task_check: false,
+      name: taskName,
+      check: false,
     };
     return this.http
       .post(this.taskUrl, JSON.stringify(task), {headers: this.headers})
