@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 
 import { ActiveTasksPipe } from './active-tasks.pipe';
 import { CompleteTasksPipe } from './complete-tasks.pipe';
+import { IdentificationModule } from '../identification/identification.module';
 import { TodoListService } from './todo-list.service';
 import { TodoListComponent } from './todo-list.component';
 import { TodoListInputComponent } from './tdlist-input.component/tdlist-input.component';
@@ -18,6 +19,7 @@ import { TodoListRoutingModule } from './todo-list-routing.module';
     BrowserAnimationsModule,
     CommonModule,
     HttpModule,
+    IdentificationModule,
     TodoListRoutingModule,
   ],
   declarations: [
