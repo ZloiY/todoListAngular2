@@ -17,9 +17,7 @@ export class TodoListService {
   getTasks(): Promise<Task[]> {
     return this.http.get(this.tasksUrl)
       .toPromise()
-      .then(response => {
-        return response.json() as Task[];
-      })
+      .then(response => response.json() as Task[])
       .catch(this.handleError);
   }
 
