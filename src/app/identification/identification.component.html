@@ -1,9 +1,9 @@
 <div>
   <h1 class="title-style">Welcome to greatest to do list!</h1>
   <div class="registration-form">
-    <label class="registration-welcome">Enter your login and password</label>
-    <input size="50" class="login" placeholder="Login" #login>
-    <input size="50" class="password" type="password" placeholder="Password" #password>
+    <label class="registration-welcome">Enter your email and password</label>
+    <input size="50" class="login" type="email" placeholder="example@mail.com" #login>
+    <input size="50" class="password" type="password" placeholder="password" #password>
     <div>
       <input type="button" class="login-btn" value="Log in" (click)="logging(login.value, password.value)">
       <input type="button" class="registration-btn" value="Registration" (click)="registration(login.value, password.value)">
