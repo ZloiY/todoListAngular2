@@ -29,14 +29,14 @@ export class IdentificationComponent implements OnInit {
   }
 
   goingtoTodoList() {
-    this.router.navigate(['/tdlist'], {relativeTo: this.route});
+    this.router.navigate(['./tdlist'], {relativeTo: this.route});
   }
 
   registration(login, password) {
     this.user.login = login;
     this.user.pass = md5(password);
     this.idService.registration(this.user)
-      .then(() => this.router.navigate(['/tdlist'], {relativeTo: this.route}));
+      .then(() => this.goingtoTodoList());
   }
 
   ngOnInit() {
