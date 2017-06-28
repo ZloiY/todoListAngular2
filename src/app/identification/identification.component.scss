@@ -73,6 +73,11 @@ $shadowColor: rgba(18, 33, 36, 0.89);
   border-bottom: 1px solid $textColor;
 }
 
+.login::-webkit-input-placeholder,
+.password::-webkit-input-placeholder {
+  color: $backgroundColor;
+}
+
 .login-btn,
 .registration-btn {
   @include border-style;
