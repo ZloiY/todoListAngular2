@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TodoListSortComponent } from './sort.component';
+import { TodoListInputComponent } from './tdlist-input.component';
 
-describe('TodoListSortComponent', () => {
-  let component: TodoListSortComponent;
-  let fixture: ComponentFixture<TodoListSortComponent>;
+describe('TodoListInputComponent', () => {
+  let component: TodoListInputComponent;
+  let fixture: ComponentFixture<TodoListInputComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoListSortComponent ]
+      declarations: [ TodoListInputComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TodoListSortComponent);
+    fixture = TestBed.createComponent(TodoListInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

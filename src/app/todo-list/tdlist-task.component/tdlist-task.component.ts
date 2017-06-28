@@ -1,11 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Task } from './task';
+import { Task } from '../task';
 import { trigger, state, style, transition, animate, keyframes } from "@angular/animations";
 
 @Component({
   selector: 'tdlist-task',
-  templateUrl: 'task.component.html',
-  styleUrls: ['task.component.scss'],
+  templateUrl: 'tdlist-task.component.html',
+  styleUrls: ['tdlist-task.component.scss'],
   animations: [
     trigger('flyInOut', [
       state('in', style({transform: 'translateX(0) scale(1)'})),

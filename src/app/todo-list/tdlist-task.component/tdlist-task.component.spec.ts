@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TodoListCheckallDelComponent } from './checkall-del.component';
+import { TodoListTaskElementComponent } from './tdlist-task.component';
 
-describe('TodoListCheckallDelComponent', () => {
-  let component: TodoListCheckallDelComponent;
-  let fixture: ComponentFixture<TodoListCheckallDelComponent>;
+describe('TodoListTaskElementComponent', () => {
+  let component: TodoListTaskElementComponent;
+  let fixture: ComponentFixture<TodoListTaskElementComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoListCheckallDelComponent ]
+      declarations: [ TodoListTaskElementComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TodoListCheckallDelComponent);
+    fixture = TestBed.createComponent(TodoListTaskElementComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

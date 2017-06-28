@@ -5,12 +5,12 @@ import { NgModule } from '@angular/core';
 
 import { ActiveTasksPipe } from './active-tasks.pipe';
 import { CompleteTasksPipe } from './complete-tasks.pipe';
-import { TasksService } from './todo-list.service';
+import { TodoListService } from './todo-list.service';
 import { TodoListComponent } from './todo-list.component';
-import { TodoListInputComponent } from './input.component';
-import { TodoListSortComponent } from './sort.component';
-import { TodoListTaskElementComponent } from './task.component';
-import { TodoListCheckallDelComponent } from './checkall-del.component';
+import { TodoListInputComponent } from './tdlist-input.component/tdlist-input.component';
+import { TodoListSortComponent } from './tdlist-sort.component/tdlist-sort.component';
+import { TodoListTaskElementComponent } from './tdlist-task.component/tdlist-task.component';
+import { TodoListToggleTasksCheckDelCheckedTasks } from './tdlist-toggletaskscheck-delcheckedtasks.component/tdlist-toggletaskscheck-delcheckedtasks.component';
 import { TodoListRoutingModule } from './todo-list-routing.module';
 
 @NgModule({
@@ -27,9 +27,9 @@ import { TodoListRoutingModule } from './todo-list-routing.module';
     TodoListInputComponent,
     TodoListSortComponent,
     TodoListTaskElementComponent,
-    TodoListCheckallDelComponent,
+    TodoListToggleTasksCheckDelCheckedTasks,
   ],
   exports: [ TodoListComponent ],
-  providers: [ TasksService ]
+  providers: [ TodoListService ]
 })
 export class TodoListModule { }

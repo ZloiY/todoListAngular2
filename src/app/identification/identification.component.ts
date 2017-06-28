@@ -6,7 +6,7 @@ import { User } from './user';
 import { md5 } from '../../../hash/md5';
 
 @Component({
-  selector: 'app-identification',
+  selector: 'identification',
   templateUrl: 'identification.component.html',
   styleUrls: ['identification.component.scss']
 })

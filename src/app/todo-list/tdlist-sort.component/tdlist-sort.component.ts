@@ -2,8 +2,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'tdlist-sort',
-  templateUrl: 'sort.component.html',
-  styleUrls: ['sort.component.scss']
+  templateUrl: 'tdlist-sort.component.html',
+  styleUrls: ['tdlist-sort.component.scss']
 })
 export class TodoListSortComponent implements OnInit {
 

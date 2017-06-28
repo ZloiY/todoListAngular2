@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 import { Task } from './task';
 
 @Injectable()
-export class TasksService {
+export class TodoListService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
   private tasksUrl = 'http://localhost:9000/tasks';

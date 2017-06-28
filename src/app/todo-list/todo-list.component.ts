@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Task } from './task';
-import { TasksService } from './todo-list.service';
+import { TodoListService } from './todo-list.service';
 
 @Component({
   selector: 'todo-list',
@@ -17,10 +17,10 @@ export class TodoListComponent implements OnInit {
   activeCheck: boolean;
   completeCheck: boolean;
 
-  constructor(private tasksService: TasksService,) {}
+  constructor(private tdListService: TodoListService,) {}
 
   onAdd(newTask: string): void {
-    this.tasksService
+    this.tdListService
       .addTask(newTask)
       .then(task => {
         this.tasks.push(task);
@@ -47,13 +47,13 @@ export class TodoListComponent implements OnInit {
   }
 
   onCheck(task: Task) {
-    this.tasksService
+    this.tdListService
       .updateTask(task)
       .then(() => this.getActiveTasks());
   }
 
   onClose(closeTask: Task) {
-    this.tasksService
+    this.tdListService
       .deleteTask(closeTask.id)
       .then(() => {
       this.tasks = this.tasks.filter((task) => task !== closeTask);
@@ -64,7 +64,7 @@ export class TodoListComponent implements OnInit {
   onCheckUncheck(allCheckbox: boolean) {
     this.tasks.forEach((task) => {
       task.complete = !allCheckbox;
-      this.tasksService
+      this.tdListService
         .updateTask(task)
         .then(() => this.getActiveTasks());
     });
@@ -81,7 +81,7 @@ export class TodoListComponent implements OnInit {
 
   ngOnInit() {
     this.tasks = [];
-    this.tasksService
+    this.tdListService
       .getTasks()
       .then(tasks => {
         this.tasks = tasks;

@@ -2,8 +2,8 @@ import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'tdlist-input',
-  templateUrl: 'input.component.html',
-  styleUrls: ['input.component.scss'],
+  templateUrl: 'tdlist-input.component.html',
+  styleUrls: ['tdlist-input.component.scss'],
 })
 export class TodoListInputComponent {
 
