@@ -16,12 +16,16 @@ export class IdentificationComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private idService: IdentificationService,
     private router: Router,
+    private idService: IdentificationService,
   ) {}
 
 
   logging(login, password) {
+    if (login.length === 0 || password.length === 0) {
+      window.alert('You must entry email and password');
+      return;
+    }
     this.user.login = login;
     this.user.pass = md5(password);
     this.idService.authentication(this.user)
@@ -33,6 +37,10 @@ export class IdentificationComponent implements OnInit {
   }
 
   registration(login, password) {
+    if (login.length === 0 || password.length === 0) {
+      window.alert('You must entry email and password');
+      return;
+    }
     this.user.login = login;
     this.user.pass = md5(password);
     this.idService.registration(this.user)
