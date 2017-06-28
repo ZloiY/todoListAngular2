@@ -9,8 +9,8 @@ import { User } from './user';
 export class IdentificationService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private registrationUrl = 'http://localhost:9000/registration';
-  private authenticationUrl = 'http://localhost:9000/authentication';
+  private registrationUrl = 'http://localhost:9000/user';
+  private authenticationUrl = 'http://localhost:9000/user/login';
 
   constructor(private http: Http) {}
 
