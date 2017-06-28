@@ -1,0 +1,57 @@
+$textColor: rgb(231, 231, 231);
+$backgroundColor: rgba(170, 184, 192, 0.56);
+$shadowColor: rgba(18, 33, 36, 0.89);
+
+@mixin text-style {
+  font: {
+    family: 'Calibri Light';
+    size: 17px;
+    style: normal;
+  }
+}
+
+@mixin btn-normal-style {
+  border: 1px solid transparent;
+  cursor: pointer;
+  background-color: transparent;
+  color: $textColor;
+}
+
+@mixin btn-hover-style {
+  border-color: $textColor;
+}
+
+@mixin  btn-active-shadow {
+  border-color: transparent;
+  -webkit-box-shadow: inset 2px 1px 4px $shadowColor;
+}
+
+@mixin btn-active-style {
+  @include btn-active-shadow;
+}
+
+.logout-btn {
+  @include text-style;
+  @include btn-normal-style;
+  padding: 4px 10px;
+  margin-left: 3px;
+}
+
+.logout-btn:hover {
+  @include btn-hover-style;
+}
+
+.logout-btn:active {
+  @include btn-active-style;
+}
+
+.email-style {
+  @include text-style;
+  padding-right: 11px;
+  border-right: 1px solid $textColor;
+}
+
+input:focus {
+  outline: none;
+}
+
