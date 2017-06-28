@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import { IdentificationService } from './identification.service';
 import { IdentificationComponent } from './identification.component';
 import { IdentificationRoutingModule } from './identfication-routing.module';
+import { LogoutComponent } from './logout.component/logout.component';
+import { LogoutService } from './logout.component/logout.service';
 
 @NgModule({
   imports: [
@@ -14,8 +16,9 @@ import { IdentificationRoutingModule } from './identfication-routing.module';
   ],
   declarations: [
     IdentificationComponent,
+    LogoutComponent,
   ],
-  exports: [ IdentificationComponent ],
-  providers: [ IdentificationService ]
+  exports: [ IdentificationComponent, LogoutComponent ],
+  providers: [ IdentificationService, LogoutService ]
 })
 export class IdentificationModule { }
