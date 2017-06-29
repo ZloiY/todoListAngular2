@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
-import { User } from '../user';
+
+import 'rxjs/add/operator/toPromise';
+
+import { User } from '../../identification/user';
 
 @Injectable()
 export class LogoutService {
