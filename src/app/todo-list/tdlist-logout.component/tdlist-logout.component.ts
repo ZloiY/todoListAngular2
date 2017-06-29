@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { LogoutService } from './logout.service';
+import { LogoutService } from './tdlist-logout.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { User } from "../user";
+import { User } from "../../identification/user";
 
 @Component({
-  selector: 'logout-component',
-  templateUrl: 'logout.component.html',
-  styleUrls: ['logout.component.scss']
+  selector: 'tdlist-logout',
+  templateUrl: 'tdlist-logout.component.html',
+  styleUrls: ['tdlist-logout.component.scss']
 })
-export class LogoutComponent implements OnInit {
+export class TodoListLogoutComponent implements OnInit {
 
   user: User;
 
