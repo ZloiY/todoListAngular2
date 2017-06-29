@@ -44,4 +44,8 @@ export class TodoListTaskElementComponent {
     task.complete ? this.isClicked = 'jump' : this.isClicked = '';
     this.onCheck.emit(task);
   }
+
+  get nameStyle() {
+    return this.task.complete ? 'task-name-complete' : 'task-name';
+  }
 }
