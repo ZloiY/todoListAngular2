@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TodoListLogoutComponent } from './tdlist-logout.component';
+import { AuthLogoutComponent } from './auth-logout.component';
 
-describe('TodoListLogoutComponent', () => {
-  let component: TodoListLogoutComponent;
-  let fixture: ComponentFixture<TodoListLogoutComponent>;
+describe('AuthLogoutComponent', () => {
+  let component: AuthLogoutComponent;
+  let fixture: ComponentFixture<AuthLogoutComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoListLogoutComponent ]
+      declarations: [ AuthLogoutComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TodoListLogoutComponent);
+    fixture = TestBed.createComponent(AuthLogoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
