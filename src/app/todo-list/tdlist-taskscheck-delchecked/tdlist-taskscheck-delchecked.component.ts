@@ -1,11 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'tdlist-toggletaskscheck-delcheckedtasks',
-  templateUrl: 'tdlist-toggletaskscheck-delcheckedtasks.component.html',
-  styleUrls: ['tdlist-toggletaskscheck-delcheckedtasks.component.scss']
+  selector: 'tdlist-taskscheck-delchecked',
+  templateUrl: 'tdlist-taskscheck-delchecked.component.html',
+  styleUrls: ['tdlist-taskscheck-delchecked.component.scss']
 })
-export class TodoListToggleTasksCheckDelCheckedTasks implements OnInit {
+export class TodoListToggleTasksDelChecked implements OnInit {
 
   @Output() onCheckUncheck = new EventEmitter<boolean>();
   @Output() onDelChecked = new EventEmitter();
