@@ -4,18 +4,17 @@ import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Task } from './task';
+import * as urls from '../../config.json';
 
 @Injectable()
 export class TodoListService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private tasksUrl = 'http://localhost:9000/tasks';
-  private taskUrl = 'http://localhost:9000/tasks/task';
 
   constructor(private http: Http){}
 
   getTasks(): Promise<Task[]> {
-    return this.http.get(this.tasksUrl)
+    return this.http.get((<any>urls).tasksUrl)
       .toPromise()
       .then(response => response.json() as Task[])
       .catch(this.handleError);
@@ -28,14 +27,14 @@ export class TodoListService {
       complete: false,
     };
     return this.http
-      .post(this.taskUrl, JSON.stringify(task), {headers: this.headers})
+      .post((<any>urls).taskUrl, task, {headers: this.headers})
       .toPromise()
       .then(res => res.json() as Task)
       .catch(this.handleError);
   }
 
   deleteTask(taskId: number): Promise<Task> {
-    const url = `${this.taskUrl}/${taskId}`;
+    const url = `${(<any>urls).taskUrl}/${taskId}`;
     return this.http
       .delete(url, {headers: this.headers})
       .toPromise()
@@ -44,9 +43,9 @@ export class TodoListService {
   }
 
   updateTask(task: Task): Promise<Task> {
-    const url = `${this.taskUrl}/${task.id}`;
+    const url = `${(<any>urls).taskUrl}/${task.id}`;
     return this.http
-      .put(url, JSON.stringify(task), {headers: this.headers})
+      .put(url, task, {headers: this.headers})
       .toPromise()
       .then(() => null)
       .catch(this.handleError);
