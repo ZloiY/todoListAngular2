@@ -1,5 +1,5 @@
 <div [@flyInOut]="'in'" [@jump]="isClicked" class="task-list-element" (click)="toggleCheck(task)">
   <input class="task-checkbox" type="checkbox" [checked]="task.complete">
   <span [ngClass]="nameStyle">{{task.name}}</span><!--
-  --><button class="task-close-btn" (click)="onCloseClick(task)"></button>
+  --><input type="button" class="task-close-btn" (click)="onCloseClick(task)">
 </div>
