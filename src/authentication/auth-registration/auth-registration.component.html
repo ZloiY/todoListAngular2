@@ -1,0 +1,12 @@
+<div>
+  <h1 class="title-style">Registration</h1>
+  <div class="registration-form">
+    <label class="registration-label">Enter your email</label>
+    <input size="50" class="login" type="email" placeholder="example@mail.com" #login>
+    <label class="registration-label">Enter your password</label>
+    <input size="50" class="password" type="password" placeholder="password" #password>
+    <label class="registration-label">Repeat your password</label>
+    <input size="50" class="password" type="password" placeholder="password" #repPass>
+    <input type="button" class="registration-btn" value="Registration" (click)="registration(login.value, password.value, repPass.value)">
+  </div>
+</div>

@@ -1,0 +1,126 @@
+$textColor: rgb(231, 231, 231);
+$backgroundColor: rgba(170, 184, 192, 0.56);
+$shadowColor: rgba(18, 33, 36, 0.89);
+
+@mixin title-text-style {
+  font: {
+    family: 'Calibri Light';
+    size: 40px;
+    style: normal;
+  }
+}
+
+@mixin text-style {
+  font: {
+    family: 'Calibri Light';
+    size: 25px;
+    style: normal;
+  }
+}
+
+@mixin border-style {
+  border: {
+    style: solid;
+    width: 2px;
+    color: $textColor;
+  }
+}
+
+@mixin btn-hover-style {
+  border-color: $textColor;
+}
+
+@mixin  btn-active-shadow {
+  border-color: transparent;
+  -webkit-box-shadow: inset 2px 1px 4px $shadowColor;
+}
+
+@mixin btn-active-style {
+  @include btn-active-shadow;
+}
+
+.title-style {
+  @include title-text-style;
+  position: absolute;
+  left: 75%;
+}
+
+.registration-label {
+  font: {
+    family: 'Calibri Light';
+    size: 20px;
+    style: normal;
+  }
+}
+
+.registration-form {
+  @include text-style;
+  border: hidden;
+  background-color: transparent;
+  text-align: center;
+  display: block;
+  position: absolute;
+  height: 400px;
+  width: 31%;
+  top: 10%;
+  left: 65%;
+}
+
+.login,
+.password {
+  @include text-style;
+  padding: 10px 5px;
+  margin: 60px 60px 25px 25px;
+  color: $textColor;
+  background-color: transparent;
+  border: hidden;
+  border-bottom: 1px solid $textColor;
+}
+
+.login::-webkit-input-placeholder,
+.password::-webkit-input-placeholder {
+  color: $backgroundColor;
+}
+
+.login-btn,
+.registration-btn {
+  @include border-style;
+  @include text-style;
+  color: $textColor;
+  display: inline;
+  padding: 5px 8px;
+  margin: 10px 25px;
+  background-color: transparent;
+  border-color: transparent;
+  border-width: 1px;
+}
+
+.login-registration {
+  position: absolute;
+  bottom: 0;
+}
+
+.login-btn:hover,
+.registration-btn:hover {
+  @include btn-hover-style;
+}
+
+.login-btn:active,
+.registration-btn:active {
+  @include btn-active-style;
+}
+
+input:focus {
+  outline: none;
+}
+
+:focus::-webkit-input-placeholder {
+  text-indent: 600px;
+  transition: text-indent 0.4s ease;
+}
+
+::-webkit-input-placeholder {
+  color: $textColor;
+  text-indent: 0px;
+  transition: text-indent 0.4s ease;
+}
