@@ -17,5 +17,5 @@
 <div class="footer">
   <label class="active-tasks-label">Active tasks: {{activeItems}}</label>
   <tdlist-sort (onAll)="onAll()" (onComplete)="onComplete()" (onActive)="onActive()"></tdlist-sort>
-  <tdlist-toggletaskscheck-delcheckedtasks (onCheckUncheck)="onCheckUncheck($event)" (onDelChecked)="onDelChecked()"></tdlist-toggletaskscheck-delcheckedtasks>
+  <tdlist-taskscheck-delchecked (onCheckUncheck)="onCheckUncheck($event)" (onDelChecked)="onDelChecked()"></tdlist-taskscheck-delchecked>
 </div>
