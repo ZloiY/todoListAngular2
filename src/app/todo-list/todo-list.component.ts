@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ActiveTasksPipe } from './active-tasks.pipe';
+import { CompleteTasksPipe } from './complete-tasks.pipe';
 import { Task } from './task';
 import { TodoListService } from './todo-list.service';
 
@@ -12,12 +14,15 @@ import { TodoListService } from './todo-list.service';
 export class TodoListComponent implements OnInit {
   task: Task;
   tasks: Task[];
+  visibleTasks: Task[];
   activeItems: number;
-  allCheck: boolean;
-  activeCheck: boolean;
-  completeCheck: boolean;
+  currentFilter: number;
 
-  constructor(private tdListService: TodoListService,) {}
+  constructor(
+    private tdListService: TodoListService,
+    private activeTasksPipe: ActiveTasksPipe,
+    private completeTasksPipe: CompleteTasksPipe
+  ) {}
 
   onAdd(newTask: string): void {
     this.tdListService
@@ -25,31 +30,32 @@ export class TodoListComponent implements OnInit {
       .then(task => {
         this.tasks.push(task);
         this.getActiveTasks();
+        this.refreshVisibleTasks();
       });
   }
 
   onAll() {
-    this.allCheck = true;
-    this.completeCheck = false;
-    this.activeCheck = false;
+    this.currentFilter = 0;
+    this.refreshVisibleTasks();
   }
 
   onComplete() {
-    this.allCheck = false;
-    this.completeCheck = true;
-    this.activeCheck = false;
+    this.currentFilter = 1;
+    this.refreshVisibleTasks();
   }
 
   onActive() {
-    this.allCheck = false;
-    this.completeCheck = false;
-    this.activeCheck = true;
+    this.currentFilter = 2;
+    this.refreshVisibleTasks();
   }
 
   onCheck(task: Task) {
     this.tdListService
       .updateTask(task)
-      .then(() => this.getActiveTasks());
+      .then(() => {
+        this.getActiveTasks();
+        this.refreshVisibleTasks();
+      });
   }
 
   onClose(closeTask: Task) {
@@ -58,6 +64,7 @@ export class TodoListComponent implements OnInit {
       .then(() => {
       this.tasks = this.tasks.filter((task) => task !== closeTask);
       this.getActiveTasks();
+      this.refreshVisibleTasks();
     });
   }
 
@@ -66,17 +73,38 @@ export class TodoListComponent implements OnInit {
       task.complete = !allCheckbox;
       this.tdListService
         .updateTask(task)
-        .then(() => this.getActiveTasks());
+        .then(() => {
+          this.getActiveTasks();
+          this.refreshVisibleTasks();
+        });
     });
   }
 
   onDelChecked() {
     this.tasks = this.tasks.filter((task) => !task.complete);
+    this.refreshVisibleTasks();
   }
 
   getActiveTasks() {
     const activeTasks = this.tasks.filter((task) => !task.complete);
     this.activeItems = activeTasks.length;
+  }
+
+  refreshVisibleTasks() {
+    switch(this.currentFilter) {
+      case 0: {
+        this.visibleTasks = this.tasks;
+        break;
+      }
+      case 1: {
+        this.visibleTasks = this.completeTasksPipe.transform(this.tasks);
+        break;
+      }
+      case 2: {
+        this.visibleTasks = this.activeTasksPipe.transform(this.tasks);
+        break;
+      }
+    }
   }
 
   ngOnInit() {
@@ -86,8 +114,8 @@ export class TodoListComponent implements OnInit {
       .then(tasks => {
         this.tasks = tasks;
         this.getActiveTasks();
+        this.onAll();
       });
-    this.onAll();
   }
 
 }

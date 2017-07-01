@@ -1,17 +1,7 @@
 <tdlist-input (onAdd)="onAdd($event)"></tdlist-input>
-<div class="scroll" *ngIf="allCheck">
+<div class="scroll">
   <div class="task-list">
-    <tdlist-task *ngFor="let task of tasks" [task]="task" (onCheck)="onCheck($event)" (onClose)="onClose($event)"></tdlist-task>
-  </div>
-</div>
-<div class="scroll" *ngIf="completeCheck">
-  <div class="task-list">
-    <tdlist-task *ngFor="let task of (tasks | completeTasks)" [task]="task" (onCheck)="onCheck($event)" (onClose)="onClose($event)"></tdlist-task>
-  </div>
-</div>
-<div class="scroll" *ngIf="activeCheck">
-  <div class="task-list">
-    <tdlist-task *ngFor="let task of (tasks | activeTasks)" [task]="task" (onCheck)="onCheck($event)" (onClose)="onClose($event)"></tdlist-task>
+    <tdlist-task *ngFor="let task of visibleTasks" [task]="task" (onCheck)="onCheck($event)" (onClose)="onClose($event)"></tdlist-task>
   </div>
 </div>
 <div class="footer">
