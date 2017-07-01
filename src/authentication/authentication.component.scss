@@ -106,6 +106,14 @@ $shadowColor: rgba(18, 33, 36, 0.89);
   @include btn-active-style;
 }
 
+.alert-danger {
+  font: {
+    family: 'Calibri Light';
+    size: 15px;
+    style: normal;
+  }
+}
+
 input:focus {
   outline: none;
 }

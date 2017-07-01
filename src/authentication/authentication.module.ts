@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
@@ -14,6 +15,7 @@ import { IdentificationRoutingModule } from './authentication-routing.module';
     CommonModule,
     HttpModule,
     IdentificationRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [ AuthenticationComponent, AuthLogoutComponent ],
   exports: [ AuthenticationComponent, AuthLogoutComponent ],
