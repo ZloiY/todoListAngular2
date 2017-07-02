@@ -3,11 +3,11 @@ import { Http, Headers } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Task } from './task';
+import { Task } from '../todo-list/task';
 import * as urls from '../../config.json';
 
 @Injectable()
-export class TodoListService {
+export class CoreService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
 
