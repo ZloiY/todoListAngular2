@@ -42,11 +42,15 @@ $shadowColor: rgba(18, 33, 36, 0.89);
 .title-style {
   @include title-text-style;
   position: absolute;
-  left: 68%;
+  left: 75%;
 }
 
 .registration-label {
-  @include text-style;
+  font: {
+    family: 'Calibri Light';
+    size: 20px;
+    style: normal;
+  }
 }
 
 .registration-form {
@@ -58,7 +62,7 @@ $shadowColor: rgba(18, 33, 36, 0.89);
   position: absolute;
   height: 400px;
   width: 31%;
-  top: 23%;
+  top: 10%;
   left: 65%;
 }
 
@@ -106,7 +110,7 @@ $shadowColor: rgba(18, 33, 36, 0.89);
   @include btn-active-style;
 }
 
-.alert-danger {
+.alert {
   font: {
     family: 'Calibri Light';
     size: 15px;

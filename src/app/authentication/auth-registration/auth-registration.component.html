@@ -1,0 +1,15 @@
+<div>
+  <h1 class="title-style">Registration</h1>
+  <form [formGroup]="registrationForm" class="registration-form">
+    <label class="registration-label">Enter your email</label>
+    <input size="50" class="login" type="email" placeholder="example@mail.com" formControlName="login" #login>
+    <div *ngIf="formErrors.login" class="alert">{{ formErrors.login }}</div>
+    <label class="registration-label">Enter your password</label>
+    <input size="50" class="password" type="password" placeholder="password" formControlName="pass" #password>
+    <div *ngIf="formErrors.pass" class="alert">{{ formErrors.pass }}</div>
+    <label class="registration-label">Repeat your password</label>
+    <input size="50" class="password" type="password" placeholder="password" formControlName="repPass" #repPass>
+    <div *ngIf="formErrors.repPass" class="alert">{{ formErrors.repPass }}</div>
+    <button class="registration-btn" (click)="registration(login.value, password.value, repPass.value)">Registration</button>
+  </form>
+</div>

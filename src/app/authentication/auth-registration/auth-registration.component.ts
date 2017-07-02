@@ -2,18 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { AuthenticationService } from './authentication.service';
-import { User } from './user';
+import { AuthenticationService } from '../authentication.service';
+import { User } from '../user';
 
 @Component({
-  selector: 'authentication',
-  templateUrl: 'authentication.component.html',
-  styleUrls: ['authentication.component.scss']
+  selector: 'app-auth-registration',
+  templateUrl: 'auth-registration.component.html',
+  styleUrls: ['auth-registration.component.scss']
 })
-export class AuthenticationComponent implements OnInit {
+export class AuthRegistrationComponent implements OnInit {
 
   private user: User;
-  userForm: FormGroup;
+  registrationForm: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,52 +22,53 @@ export class AuthenticationComponent implements OnInit {
     private formBuilder: FormBuilder,
   ) {}
 
-
-  logging(login, password) {
-    this.user.login = login;
-    this.user.pass = password;
-    if (this.formErrors.pass && this.formErrors.login) {
+  registration(login, password, repPass) {
+    if (password !== repPass) {
       return;
     }
-    this.authService.authentication(this.user)
-      .then(() => this.router.navigate(['./complete'], {relativeTo: this.route}));
+    if (this.formErrors.login || this.formErrors.pass || this.formErrors.repPass) {
+      return;
+    }
+    this.user.login = login;
+    this.user.pass = password;
+    this.authService.registration(this.user)
+      .then(() => this.router.navigate(['/authentication'], {relativeTo: this.route}));
   }
 
-  registration() {
-    this.router.navigate(['/registration'], {relativeTo: this.route})
-  }
 
   ngOnInit() {
-    this.user = {login:'', pass:''};
     this.buildForm();
   }
 
-
   buildForm() {
-    this.userForm = this.formBuilder.group({
-      'login':[this.user.login,
+    this.registrationForm = this.formBuilder.group({
+      'login':['',
         [
           Validators.required,
           Validators.pattern(/\w+@[a-z]+\.[a-z]+/g),
         ]],
-      'pass':[this.user.pass,
+      'pass':['',
         [
           Validators.required,
           Validators.minLength(4),
-        ]]
+        ]],
+      'repPass':['',
+        [
+          Validators.required,
+        ]],
     });
 
-    this.userForm.valueChanges
+    this.registrationForm.valueChanges
       .subscribe(data => this.onValueChanged(data));
 
     this.onValueChanged()
   }
 
   onValueChanged(data?: any) {
-    if (!this.userForm) {
+    if (!this.registrationForm) {
       return;
     }
-    const form = this.userForm;
+    const form = this.registrationForm;
 
     for (const field in this.formErrors) {
       this.formErrors[field] = '';
@@ -84,6 +85,7 @@ export class AuthenticationComponent implements OnInit {
   formErrors = {
     'login': '',
     'pass': '',
+    'repPass': '',
   };
 
   validationMessages = {
@@ -94,6 +96,10 @@ export class AuthenticationComponent implements OnInit {
     'pass': {
       'required': 'Password is required.',
       'minlength': 'Password length must be more than 4 characters',
+    },
+    'repPass': {
+      'required': 'You must repeat your password.',
     }
   };
+
 }

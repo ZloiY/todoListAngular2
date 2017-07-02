@@ -4,11 +4,11 @@
     <label class="registration-label">Enter your email and password</label>
     <form [formGroup]="userForm">
       <input size="50" class="login" formControlName="login" type="email" placeholder="example@mail.com" #login>
-      <div *ngIf="formErrors.login" class="alert-danger">
+      <div *ngIf="formErrors.login" class="alert">
         {{ formErrors.login }}
       </div>
       <input size="50" class="password" formControlName="pass" type="password" placeholder="password" #password>
-      <div *ngIf="formErrors.pass" class="alert-danger">
+      <div *ngIf="formErrors.pass" class="alert">
         {{ formErrors.pass }}
       </div>
     </form>

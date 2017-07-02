@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { TodoListModule } from './todo-list/todo-list.module';
-import { IdentificationModule } from './identification/identification.module';
+import { AuthenticationModule } from './authentication/authentication.module';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -11,10 +11,10 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
   ],
   imports: [
+    AppRoutingModule,
+    // AuthenticationModule,
     BrowserModule,
-    IdentificationModule,
     TodoListModule,
-    AppRoutingModule
   ],
   providers: [],
   bootstrap: [ AppComponent ]

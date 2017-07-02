@@ -7,8 +7,8 @@ import { AuthRegistrationComponent } from './auth-registration/auth-registration
 @NgModule({
   imports: [RouterModule.forChild([
     { path: 'authentication', component: AuthenticationComponent },
-    { path: 'registration', component: AuthRegistrationComponent}
+    { path: 'registration', component: AuthRegistrationComponent }
   ])],
   exports: [RouterModule]
 })
-export class IdentificationRoutingModule {}
+export class AuthenticationRoutingModule {}

@@ -5,7 +5,7 @@ import { TodoListComponent } from './todo-list.component';
 
 @NgModule({
   imports: [RouterModule.forChild([
-    { path: 'identification/tdlist', component: TodoListComponent}
+    { path: 'todolist', component: TodoListComponent}
   ])],
   exports: [RouterModule]
 })

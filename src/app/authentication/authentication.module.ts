@@ -5,20 +5,21 @@ import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 
 import { AuthLogoutComponent } from './auth-logout/auth-logout.component';
+import { AuthRegistrationComponent } from "./auth-registration/auth-registration.component";
 import { AuthenticationService } from './authentication.service';
 import { AuthenticationComponent } from './authentication.component';
-import { IdentificationRoutingModule } from './authentication-routing.module';
+import { AuthenticationRoutingModule } from './authentication-routing.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     CommonModule,
     HttpModule,
-    IdentificationRoutingModule,
+    AuthenticationRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [ AuthenticationComponent, AuthLogoutComponent ],
+  declarations: [ AuthenticationComponent, AuthLogoutComponent, AuthRegistrationComponent ],
   exports: [ AuthenticationComponent, AuthLogoutComponent ],
-  providers: [ AuthenticationService]
+  providers: [ AuthenticationService ]
 })
 export class AuthenticationModule { }
