@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import { environment } from '../../environments/environment';
 
 import 'rxjs/add/operator/toPromise';
 
 import { Task } from '../todo-list/task';
-import * as urls from '../../config.json';
 
 @Injectable()
 export class CoreService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
 
+
   constructor(private http: Http){}
 
   getTasks(): Promise<Task[]> {
-    return this.http.get((<any>urls).tasksUrl)
+    return this.http.get(environment.serverUrls.tasksUrl)
       .toPromise()
       .then(response => response.json() as Task[])
       .catch(this.handleError);
@@ -27,14 +28,14 @@ export class CoreService {
       complete: false,
     };
     return this.http
-      .post((<any>urls).taskUrl, task, {headers: this.headers})
+      .post(environment.serverUrls.taskUrl, task, {headers: this.headers})
       .toPromise()
       .then(res => res.json() as Task)
       .catch(this.handleError);
   }
 
   deleteTask(taskId: number): Promise<Task> {
-    const url = `${(<any>urls).taskUrl}/${taskId}`;
+    const url = `${environment.serverUrls.taskUrl}/${taskId}`;
     return this.http
       .delete(url, {headers: this.headers})
       .toPromise()
@@ -43,7 +44,7 @@ export class CoreService {
   }
 
   updateTask(task: Task): Promise<Task> {
-    const url = `${(<any>urls).taskUrl}/${task.id}`;
+    const url = `${environment.serverUrls.taskUrl}/${task.id}`;
     return this.http
       .put(url, task, {headers: this.headers})
       .toPromise()

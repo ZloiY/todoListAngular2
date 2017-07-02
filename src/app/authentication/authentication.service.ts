@@ -1,9 +1,9 @@
 import {Injectable, OnInit} from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import { environment } from '../../environments/environment';
 
 import 'rxjs/add/operator/toPromise';
 
-import * as urls from '../../config.json';
 import { User } from './user';
 
 @Injectable()
@@ -16,7 +16,7 @@ export class AuthenticationService implements OnInit{
 
   registration(user: User): Promise<User> {
     return this.http
-      .post((<any>urls).authenticationUrl, user, {headers: this.headers})
+      .post(environment.serverUrls.authenticationUrl, user, {headers: this.headers})
       .toPromise()
       .then(() => null)
       .catch(this.handleError);
@@ -24,7 +24,7 @@ export class AuthenticationService implements OnInit{
 
   authentication(user: User): Promise<User> {
     return this.http
-      .post((<any>urls).authenticationUrl, user, {headers: this.headers})
+      .post(environment.serverUrls.authenticationUrl, user, {headers: this.headers})
       .toPromise()
       .then(() => this.loggedIn = true)
       .catch(this.handleError);
@@ -32,14 +32,14 @@ export class AuthenticationService implements OnInit{
 
   logout(user: User): Promise<User> {
     return this.http
-      .post((<any>urls).logoutUrl, user, {headers: this.headers})
+      .post(environment.serverUrls.logoutUrl, user, {headers: this.headers})
       .toPromise()
       .then(() => this.loggedIn = false)
       .catch(this.handleError)
   }
 
   getCurrentUser(): Promise<User> {
-    return this.http.get((<any>urls).userUrl)
+    return this.http.get(environment.serverUrls.userUrl)
       .toPromise()
       .then((user) => user.json() as User)
       .catch(this.handleError)
