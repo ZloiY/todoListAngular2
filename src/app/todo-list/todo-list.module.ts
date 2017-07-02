@@ -9,7 +9,8 @@ import { AuthGuard } from '../authentication/auth-guard.service';
 import { AuthenticationModule } from "../authentication/authentication.module";
 import { ActiveTasksPipe } from './active-tasks.pipe';
 import { CompleteTasksPipe } from './complete-tasks.pipe';
-import { TodoListService } from './todo-list.service';
+import { CoreModule } from '../core/core.module';
+import { CoreService } from '../core/core.service';
 import { TodoListComponent } from './todo-list.component';
 import { TodoListInputComponent } from './tdlist-input/tdlist-input.component';
 import { TodoListSortComponent } from './tdlist-sort/tdlist-sort.component';
@@ -21,6 +22,7 @@ import { TodoListRoutingModule } from './todo-list-routing.module';
   imports: [
     AuthenticationModule,
     BrowserAnimationsModule,
+    CoreModule,
     CommonModule,
     FormsModule,
     HttpModule,
@@ -37,7 +39,7 @@ import { TodoListRoutingModule } from './todo-list-routing.module';
   exports: [ TodoListComponent ],
   providers: [
     AuthGuard,
-    TodoListService,
+    CoreService,
     ActiveTasksPipe,
     CompleteTasksPipe,
   ]

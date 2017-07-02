@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActiveTasksPipe } from './active-tasks.pipe';
 import { CompleteTasksPipe } from './complete-tasks.pipe';
 import { Task } from './task';
-import { TodoListService } from './todo-list.service';
+import { CoreService } from '../core/core.service';
 
 @Component({
   selector: 'todo-list',
@@ -19,7 +19,7 @@ export class TodoListComponent implements OnInit {
   currentFilter: number;
 
   constructor(
-    private tdListService: TodoListService,
+    private tdListService: CoreService,
     private activeTasksPipe: ActiveTasksPipe,
     private completeTasksPipe: CompleteTasksPipe
   ) {}
