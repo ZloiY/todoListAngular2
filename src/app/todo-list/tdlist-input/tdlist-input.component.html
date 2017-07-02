@@ -1,6 +1,7 @@
-<div class="input-background">
+<form class="input-background" [formGroup]="taskForm">
   <label class="akveo-label">Akveo ToDoList</label>
-  <input class="input-new-task-name" size="60" placeholder="Task name..." (keyup)="onEnterPressed($event)"  #newTask>
-  <button class="add-task-btn" (click)="onAddBtnClick(newTask)">Add</button>
+  <input class="input-new-task-name" size="60" placeholder="Task name..." (keyup)="onEnterPressed($event)" formControlName="taskName" #taskName>
+  <div *ngIf="formErrors.taskName" class="alert-name">{{ formErrors.taskName }}</div>
+  <button class="add-task-btn" (click)="onAddBtnClick(taskName)">Add</button>
   <auth-logout class="logout" ></auth-logout>
-</div>
+</form>

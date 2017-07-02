@@ -107,6 +107,18 @@ input:focus {
   transition: text-indent 0.6s ease;
 }
 
+.alert-name {
+  font: {
+    family: 'Calibri Light';
+    size: 13px;
+    style: normal;
+  }
+  color: $textColor;
+  position: absolute;
+  left: 47%;
+  top: 75%;
+};
+
 .add-task-btn {
   @include btn-text-style;
   @include btn-normal-style;
