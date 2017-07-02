@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { environment } from '../../environments/environment';
 
-import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs';
 
 import { Task } from '../todo-list/task';
 
@@ -14,14 +14,13 @@ export class CoreService {
 
   constructor(private http: Http){}
 
-  getTasks(): Promise<Task[]> {
+  getTasks(): Observable<Task[]> {
     return this.http.get(environment.serverUrls.tasksUrl)
-      .toPromise()
-      .then(response => response.json() as Task[])
+      .map(response => response.json() as Task[])
       .catch(this.handleError);
   }
 
-  addTask(taskName: string): Promise<Task> {
+  addTask(taskName: string): Observable<Task> {
     const task = {
       id: 0,
       name: taskName,
@@ -29,32 +28,29 @@ export class CoreService {
     };
     return this.http
       .post(environment.serverUrls.taskUrl, task, {headers: this.headers})
-      .toPromise()
-      .then(res => res.json() as Task)
+      .map(res => res.json() as Task)
       .catch(this.handleError);
   }
 
-  deleteTask(taskId: number): Promise<Task> {
+  deleteTask(taskId: number): Observable<Task> {
     const url = `${environment.serverUrls.taskUrl}/${taskId}`;
     return this.http
       .delete(url, {headers: this.headers})
-      .toPromise()
-      .then(() => null)
+      .map(() => null)
       .catch(this.handleError);
   }
 
-  updateTask(task: Task): Promise<Task> {
+  updateTask(task: Task): Observable<Task> {
     const url = `${environment.serverUrls.taskUrl}/${task.id}`;
     return this.http
       .put(url, task, {headers: this.headers})
-      .toPromise()
-      .then(() => null)
+      .map(() => null)
       .catch(this.handleError);
   }
 
-  private handleError(error: any): Promise<any> {
+  private handleError(error: any): Observable<any> {
     console.error('An error occurred', error);
-    return Promise.reject(error.message || error);
+    return Observable.throw(error.json().error);
   }
 
 }

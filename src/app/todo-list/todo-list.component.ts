@@ -27,7 +27,7 @@ export class TodoListComponent implements OnInit {
   onAdd(newTask: string): void {
     this.tdListService
       .addTask(newTask)
-      .then(task => {
+      .subscribe(task => {
         this.tasks.push(task);
         this.getActiveTasks();
         this.refreshVisibleTasks();
@@ -52,7 +52,7 @@ export class TodoListComponent implements OnInit {
   onCheck(task: Task) {
     this.tdListService
       .updateTask(task)
-      .then(() => {
+      .subscribe(() => {
         this.getActiveTasks();
         this.refreshVisibleTasks();
       });
@@ -61,7 +61,7 @@ export class TodoListComponent implements OnInit {
   onClose(closeTask: Task) {
     this.tdListService
       .deleteTask(closeTask.id)
-      .then(() => {
+      .subscribe(() => {
       this.tasks = this.tasks.filter((task) => task !== closeTask);
       this.getActiveTasks();
       this.refreshVisibleTasks();
@@ -73,7 +73,7 @@ export class TodoListComponent implements OnInit {
       task.complete = !allCheckbox;
       this.tdListService
         .updateTask(task)
-        .then(() => {
+        .subscribe(() => {
           this.getActiveTasks();
           this.refreshVisibleTasks();
         });
@@ -111,7 +111,7 @@ export class TodoListComponent implements OnInit {
     this.tasks = [];
     this.tdListService
       .getTasks()
-      .then(tasks => {
+      .subscribe(tasks => {
         this.tasks = tasks;
         this.getActiveTasks();
         this.onAll();

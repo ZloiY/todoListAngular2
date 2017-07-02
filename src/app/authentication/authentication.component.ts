@@ -30,7 +30,7 @@ export class AuthenticationComponent implements OnInit {
     this.user.login = login;
     this.user.pass = password;
     this.authService.authentication(this.user)
-      .then(() => this.router.navigate(['./complete'], {relativeTo: this.route}));
+      .subscribe(() => this.router.navigate(['./complete'], {relativeTo: this.route}));
   }
 
   registration() {

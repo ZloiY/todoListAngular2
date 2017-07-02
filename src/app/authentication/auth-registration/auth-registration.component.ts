@@ -32,7 +32,7 @@ export class AuthRegistrationComponent implements OnInit {
     this.user.login = login;
     this.user.pass = password;
     this.authService.registration(this.user)
-      .then(() => this.router.navigate(['/authentication'], {relativeTo: this.route}));
+      .subscribe(() => this.router.navigate(['/authentication'], {relativeTo: this.route}));
   }
 
 
