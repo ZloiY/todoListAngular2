@@ -34,7 +34,7 @@ export class AuthenticationService implements OnInit{
     return this.http
       .post((<any>urls).logoutUrl, user, {headers: this.headers})
       .toPromise()
-      .then(() => null)
+      .then(() => this.loggedIn = false)
       .catch(this.handleError)
   }
 
