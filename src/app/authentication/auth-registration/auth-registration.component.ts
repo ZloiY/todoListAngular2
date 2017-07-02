@@ -45,7 +45,7 @@ export class AuthRegistrationComponent implements OnInit {
       'login':['',
         [
           Validators.required,
-          Validators.pattern(/\w+@[a-z]+\.[a-z]+/g),
+          Validators.email,
         ]],
       'pass': ['',
         [
@@ -103,7 +103,7 @@ export class AuthRegistrationComponent implements OnInit {
   validationMessages = {
     'login': {
       'required':'Login is required.',
-      'pattern': 'You must enter your email address',
+      'email': 'You must enter your email address',
     },
     'pass': {
       'required': 'Password is required.',
