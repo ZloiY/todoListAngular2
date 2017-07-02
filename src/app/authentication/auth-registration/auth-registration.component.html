@@ -10,6 +10,7 @@
     <label class="registration-label">Repeat your password</label>
     <input size="50" class="password" type="password" placeholder="password" formControlName="repPass" #repPass>
     <div *ngIf="formErrors.repPass" class="alert">{{ formErrors.repPass }}</div>
+    <div *ngIf="registrationForm.hasError('mismatchedPasswords')" class="alert">Passwords don't match.</div>
     <button class="registration-btn" (click)="registration(login.value, password.value, repPass.value)">Registration</button>
   </form>
 </div>

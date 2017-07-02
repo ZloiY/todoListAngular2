@@ -47,21 +47,33 @@ export class AuthRegistrationComponent implements OnInit {
           Validators.required,
           Validators.pattern(/\w+@[a-z]+\.[a-z]+/g),
         ]],
-      'pass':['',
+      'pass': ['',
         [
           Validators.required,
           Validators.minLength(4),
         ]],
-      'repPass':['',
+      'repPass': ['',
         [
           Validators.required,
         ]],
-    });
+    }, {validator: this.passCheck('pass', 'repPass')});
 
     this.registrationForm.valueChanges
       .subscribe(data => this.onValueChanged(data));
 
     this.onValueChanged()
+  }
+
+  passCheck(passKey: string, repPassKey: string) {
+    return (form: FormGroup): {[key: string]: any} => {
+      const password = form.controls[passKey];
+      const repPassword = form.controls[repPassKey];
+      if (password.value !== repPassword.value) {
+        return {
+          mismatchedPasswords: true,
+        }
+      }
+    }
   }
 
   onValueChanged(data?: any) {
