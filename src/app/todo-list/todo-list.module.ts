@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { AuthGuard } from '../authentication/auth-guard.service';
 import { AuthenticationModule } from "../authentication/authentication.module";
 import { ActiveTasksPipe } from './active-tasks.pipe';
 import { CompleteTasksPipe } from './complete-tasks.pipe';
@@ -34,6 +35,11 @@ import { TodoListRoutingModule } from './todo-list-routing.module';
     TodoListToggleTasksDelChecked,
   ],
   exports: [ TodoListComponent ],
-  providers: [ TodoListService, ActiveTasksPipe, CompleteTasksPipe ]
+  providers: [
+    AuthGuard,
+    TodoListService,
+    ActiveTasksPipe,
+    CompleteTasksPipe,
+  ]
 })
 export class TodoListModule { }

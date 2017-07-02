@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import { Http, Headers } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
@@ -7,9 +7,10 @@ import * as urls from '../../config.json';
 import { User } from './user';
 
 @Injectable()
-export class AuthenticationService {
+export class AuthenticationService implements OnInit{
 
   private headers = new Headers({'Content-Type': 'application/json'});
+  loggedIn: boolean;
 
   constructor(private http: Http) {}
 
@@ -25,7 +26,7 @@ export class AuthenticationService {
     return this.http
       .post((<any>urls).authenticationUrl, user, {headers: this.headers})
       .toPromise()
-      .then(() => null)
+      .then(() => this.loggedIn = true)
       .catch(this.handleError);
   }
 
@@ -47,6 +48,10 @@ export class AuthenticationService {
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
+  }
+
+  ngOnInit() {
+    this.loggedIn = false;
   }
 
 }
