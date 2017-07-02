@@ -4,5 +4,5 @@
   "userUrl":"http://localhost:9000/user",
   "registrationUrl":"http://localhost:9000/user",
   "authenticationUrl":"http://localhost:9000/user/login",
-  "logoutUrl":"http://localhost:9000/user"
+  "logoutUrl":"http://localhost:9000/user/logout"
 }
