@@ -1,21 +1,28 @@
-import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import {Injectable, OnInit} from '@angular/core';
+import { Http, Headers, URLSearchParams } from '@angular/http';
 import { environment } from '../../environments/environment';
 
 import { Observable } from 'rxjs';
 
+import { AuthenticationService } from '../authentication/authentication.service';
 import { Task } from '../todo-list/task';
 
 @Injectable()
 export class CoreService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
+  private params = new URLSearchParams();
+  private token: string;
 
-
-  constructor(private http: Http){}
+  constructor(
+    private http: Http,
+    private authService: AuthenticationService,
+  ){}
 
   getTasks(): Observable<Task[]> {
-    return this.http.get(environment.serverUrls.tasksUrl)
+    this.token = this.authService.getAccessesToken();
+    this.params.set('token', this.token);
+    return this.http.get(environment.serverUrls.tasksUrl, {search: this.params})
       .map(response => response.json() as Task[])
       .catch(this.handleError);
   }
@@ -27,7 +34,7 @@ export class CoreService {
       complete: false,
     };
     return this.http
-      .post(environment.serverUrls.taskUrl, task, {headers: this.headers})
+      .post(environment.serverUrls.taskUrl, task, {headers: this.headers, search: this.params})
       .map(res => res.json() as Task)
       .catch(this.handleError);
   }
@@ -35,15 +42,20 @@ export class CoreService {
   deleteTask(taskId: number): Observable<Task> {
     const url = `${environment.serverUrls.taskUrl}/${taskId}`;
     return this.http
-      .delete(url, {headers: this.headers})
+      .delete(url,  {headers: this.headers, search: this.params})
       .map(() => null)
       .catch(this.handleError);
   }
 
   updateTask(task: Task): Observable<Task> {
     const url = `${environment.serverUrls.taskUrl}/${task.id}`;
+    const updateTask = {
+      id: task.id,
+      name: task.name,
+      complete: task.complete,
+    };
     return this.http
-      .put(url, task, {headers: this.headers})
+      .put(url, updateTask, {headers: this.headers, search: this.params})
       .map(() => null)
       .catch(this.handleError);
   }

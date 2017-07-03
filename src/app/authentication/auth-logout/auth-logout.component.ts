@@ -21,7 +21,7 @@ export class AuthLogoutComponent implements OnInit {
 
   onLogOutClick() {
     this.authService
-      .logout(this.user)
+      .logout()
       .subscribe(() => this.router.navigate(['/authentication'], { relativeTo: this.route }))
   }
 

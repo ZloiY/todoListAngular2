@@ -16,16 +16,13 @@ export class AuthRegistrationComponent implements OnInit {
   registrationForm: FormGroup;
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
     private authService: AuthenticationService,
     private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {}
 
-  registration(login, password, repPass) {
-    if (password !== repPass) {
-      return;
-    }
+  registration(login, password) {
     if (this.formErrors.login || this.formErrors.pass || this.formErrors.repPass) {
       return;
     }
@@ -37,6 +34,7 @@ export class AuthRegistrationComponent implements OnInit {
 
 
   ngOnInit() {
+    this.user = {login:'', pass:''};
     this.buildForm();
   }
 
@@ -81,7 +79,6 @@ export class AuthRegistrationComponent implements OnInit {
       return;
     }
     const form = this.registrationForm;
-
     for (const field in this.formErrors) {
       this.formErrors[field] = '';
       const control = form.get(field);

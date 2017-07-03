@@ -1,5 +1,5 @@
 import {Injectable, OnInit} from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import {Http, Headers, URLSearchParams} from '@angular/http';
 import { environment } from '../../environments/environment';
 
 import { Observable } from 'rxjs';
@@ -10,35 +10,45 @@ import { User } from './user';
 export class AuthenticationService implements OnInit{
 
   private headers = new Headers({'Content-Type': 'application/json'});
+  private params = new URLSearchParams();
+  private token: string;
   loggedIn: boolean;
-
+  
   constructor(private http: Http) {}
 
   registration(user: User): Observable<User> {
     return this.http
-      .post(environment.serverUrls.authenticationUrl, user, {headers: this.headers})
+      .post(environment.serverUrls.registrationUrl, user, {headers: this.headers})
       .map(() => null)
       .catch(this.handleError);
   }
 
-  authentication(user: User): Observable<User> {
+  authentication(user: User): Observable<string> {
     return this.http
       .post(environment.serverUrls.authenticationUrl, user, {headers: this.headers})
-      .map(() => this.loggedIn = true)
+      .map((token) => {
+      this.loggedIn = true;
+      this.token = token.json() as string;
+      this.params.set('token', this.token);
+      })
       .catch(this.handleError);
   }
 
-  logout(user: User): Observable<User> {
+  logout(): Observable<User> {
     return this.http
-      .post(environment.serverUrls.logoutUrl, user, {headers: this.headers})
+      .post(`${environment.serverUrls.logoutUrl}/${this.token}`, {headers: this.headers})
       .map(() => this.loggedIn = false)
       .catch(this.handleError)
   }
 
   getCurrentUser(): Observable<User> {
-    return this.http.get(environment.serverUrls.userUrl)
+    return this.http.get(environment.serverUrls.userUrl, {search: this.params})
       .map((user) => user.json() as User)
       .catch(this.handleError)
+  }
+
+  getAccessesToken() {
+    return this.token;
   }
 
   private handleError(error: any): Observable<any> {
