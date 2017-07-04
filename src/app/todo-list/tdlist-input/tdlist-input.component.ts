@@ -15,7 +15,7 @@ export class TodoListInputComponent implements OnInit{
 
   onAddBtnClick(taskInput) {
     const taskName = (<HTMLInputElement>taskInput);
-    if (this.formErrors.taskName) {
+    if (taskName.value.length === 0) {
       return
     }
     this.onAdd.emit(taskName.value);
