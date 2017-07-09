@@ -32,7 +32,6 @@ export class AuthRegistrationComponent implements OnInit {
       .subscribe(() => this.router.navigate(['/authentication'], {relativeTo: this.route}));
   }
 
-
   ngOnInit() {
     this.user = {login:'', pass:''};
     this.buildForm();

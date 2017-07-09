@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from '../authentication/auth-guard.service';
 import { TodoListComponent } from './todo-list.component';
 
+export const routes: Routes = [
+  { path: 'todolist',
+    component: TodoListComponent,
+    canActivate: [AuthGuard],
+  }
+];
+
 @NgModule({
-  imports: [RouterModule.forChild([
-    { path: 'todolist',
-      component: TodoListComponent,
-      canActivate: [
-        AuthGuard
-      ]}
-  ])],
+  imports: [RouterModule.forRoot(routes)],
   providers: [AuthGuard],
   exports: [RouterModule]
 })
