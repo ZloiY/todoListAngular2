@@ -37,7 +37,10 @@ export class AuthenticationService implements OnInit{
   logout(): Observable<User> {
     return this.http
       .post(`${environment.serverUrls.logoutUrl}/${this.token}`, {headers: this.headers})
-      .map(() => this.loggedIn = false)
+      .map(() => {
+        this.loggedIn = false;
+        this.token = '';
+      })
       .catch(this.handleError)
   }
 
