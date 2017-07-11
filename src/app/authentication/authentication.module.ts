@@ -7,15 +7,16 @@ import { NgModule } from '@angular/core';
 import { AuthGuard } from './auth-guard.service';
 import { AuthLogoutComponent } from './auth-logout/auth-logout.component';
 import { AuthRegistrationComponent } from "./auth-registration/auth-registration.component";
-import { AuthenticationService } from './authentication.service';
 import { AuthenticationComponent } from './authentication.component';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     CommonModule,
     HttpModule,
+    SharedModule,
     AuthenticationRoutingModule,
     ReactiveFormsModule,
   ],
@@ -29,7 +30,6 @@ import { AuthenticationRoutingModule } from './authentication-routing.module';
     AuthLogoutComponent,
   ],
   providers: [
-    AuthenticationService,
     AuthGuard,
   ]
 })

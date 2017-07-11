@@ -1,10 +1,10 @@
-import {Injectable, OnInit} from '@angular/core';
-import {Http, Headers, URLSearchParams} from '@angular/http';
-import { environment } from '../../environments/environment';
+import { Injectable, OnInit } from '@angular/core';
+import { Http, Headers, URLSearchParams } from '@angular/http';
+import { environment } from '../../../environments/environment';
 
 import { Observable } from 'rxjs';
 
-import { User } from './user';
+import { User } from '../user';
 
 @Injectable()
 export class AuthenticationService implements OnInit{
