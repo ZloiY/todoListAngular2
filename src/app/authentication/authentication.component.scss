@@ -118,6 +118,10 @@ input:focus {
   outline: none;
 }
 
+button:focus {
+  outline: none;
+}
+
 :focus::-webkit-input-placeholder {
   text-indent: 600px;
   transition: text-indent 0.4s ease;
