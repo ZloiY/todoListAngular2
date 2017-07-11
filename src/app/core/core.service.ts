@@ -1,11 +1,11 @@
-import {Injectable, OnInit} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Http, Headers, URLSearchParams } from '@angular/http';
 import { environment } from '../../environments/environment';
 
 import { Observable } from 'rxjs';
 
-import { AuthenticationService } from '../authentication/authentication.service';
-import { Task } from '../todo-list/task';
+import { AuthenticationService } from '../authentication/shared/authentication.service';
+import { Task } from '../todo-list/shared/task';
 
 @Injectable()
 export class CoreService {

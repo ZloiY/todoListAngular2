@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { AuthenticationService } from '../authentication/authentication.service';
+import { AuthenticationService } from '../authentication/shared/authentication.service';
 import { AuthenticationModule } from '../authentication/authentication.module';
 import { CoreService } from './core.service';
 
