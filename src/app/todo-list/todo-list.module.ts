@@ -5,8 +5,7 @@ import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { AuthGuard } from '../authentication/auth-guard.service';
-import { AuthenticationModule } from "../authentication/authentication.module";
+import { AuthenticationModule } from '../authentication/authentication.module';
 import { ActiveTasksPipe } from './active-tasks.pipe';
 import { CompleteTasksPipe } from './complete-tasks.pipe';
 import { CoreModule } from '../core/core.module';
@@ -16,7 +15,6 @@ import { TodoListInputComponent } from './tdlist-input/tdlist-input.component';
 import { TodoListSortComponent } from './tdlist-sort/tdlist-sort.component';
 import { TodoListTaskElementComponent } from './tdlist-task/tdlist-task.component';
 import { TodoListToggleTasksDelChecked } from './tdlist-taskscheck-delchecked/tdlist-taskscheck-delchecked.component';
-import { TodoListRoutingModule } from './todo-list-routing.module';
 
 @NgModule({
   imports: [
@@ -26,7 +24,6 @@ import { TodoListRoutingModule } from './todo-list-routing.module';
     CommonModule,
     FormsModule,
     HttpModule,
-    TodoListRoutingModule,
     ReactiveFormsModule
   ],
   declarations: [
@@ -38,7 +35,6 @@ import { TodoListRoutingModule } from './todo-list-routing.module';
   ],
   exports: [ TodoListComponent ],
   providers: [
-    AuthGuard,
     CoreService,
     ActiveTasksPipe,
     CompleteTasksPipe,

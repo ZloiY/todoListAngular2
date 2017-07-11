@@ -30,7 +30,7 @@ export class AuthenticationComponent implements OnInit {
     this.user.login = login;
     this.user.pass = password;
     this.authService.authentication(this.user)
-      .subscribe(() => this.router.navigate(['./complete'], {relativeTo: this.route}));
+      .subscribe(() => this.router.navigate(['/todolist'], {relativeTo: this.route}));
   }
 
   registration() {
@@ -41,7 +41,6 @@ export class AuthenticationComponent implements OnInit {
     this.user = {login:'', pass:''};
     this.buildForm();
   }
-
 
   buildForm() {
     this.userForm = this.formBuilder.group({
@@ -68,7 +67,6 @@ export class AuthenticationComponent implements OnInit {
       return;
     }
     const form = this.userForm;
-
     for (const field in this.formErrors) {
       this.formErrors[field] = '';
       const control = form.get(field);
