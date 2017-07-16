@@ -28,6 +28,7 @@ import { trigger, state, style, transition, animate, keyframes } from "@angular/
     ]),
   ]
 })
+
 export class TodoListTaskElementComponent {
 
   @Input() task: Task;

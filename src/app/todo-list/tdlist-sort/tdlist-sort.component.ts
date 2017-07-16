@@ -7,6 +7,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class TodoListSortComponent implements OnInit {
 
+  ngOnInit() {
+    this.onAllClick();
+  }
+
   @Output() onAll = new EventEmitter();
   @Output() onActive = new EventEmitter();
   @Output() onComplete = new  EventEmitter();
@@ -33,10 +37,6 @@ export class TodoListSortComponent implements OnInit {
     this.activeChecked = true;
     this.allChecked = false;
     this.onActive.emit();
-  }
-
-  ngOnInit() {
-    this.onAllClick();
   }
 
 }

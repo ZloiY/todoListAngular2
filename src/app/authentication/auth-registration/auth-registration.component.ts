@@ -22,6 +22,11 @@ export class AuthRegistrationComponent implements OnInit {
     private router: Router,
   ) {}
 
+  ngOnInit() {
+    this.user = {login:'', pass:''};
+    this.buildForm();
+  }
+
   registration(login, password) {
     if (this.formErrors.login || this.formErrors.pass || this.formErrors.repPass) {
       return;
@@ -30,11 +35,6 @@ export class AuthRegistrationComponent implements OnInit {
     this.user.pass = password;
     this.authService.registration(this.user)
       .subscribe(() => this.router.navigate(['/authentication'], {relativeTo: this.route}));
-  }
-
-  ngOnInit() {
-    this.user = {login:'', pass:''};
-    this.buildForm();
   }
 
   buildForm() {

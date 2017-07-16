@@ -7,7 +7,11 @@ import { Observable } from 'rxjs';
 import { User } from './user';
 
 @Injectable()
-export class AuthenticationService implements OnInit{
+export class AuthenticationService implements OnInit {
+
+  ngOnInit() {
+    this.loggedIn = false;
+  }
 
   private headers = new Headers({'Content-Type': 'application/json'});
   private params = new URLSearchParams();
@@ -57,10 +61,6 @@ export class AuthenticationService implements OnInit{
   private handleError(error: any): Observable<any> {
     console.error('An error occurred', error);
     return Observable.throw(error.json().error);
-  }
-
-  ngOnInit() {
-    this.loggedIn = false;
   }
 
 }

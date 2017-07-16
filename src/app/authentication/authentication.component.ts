@@ -22,6 +22,10 @@ export class AuthenticationComponent implements OnInit {
     private formBuilder: FormBuilder,
   ) {}
 
+  ngOnInit() {
+    this.user = {login:'', pass:''};
+    this.buildForm();
+  }
 
   logging(login, password) {
     if (this.formErrors.pass && this.formErrors.login) {
@@ -35,11 +39,6 @@ export class AuthenticationComponent implements OnInit {
 
   registration() {
     this.router.navigate(['/registration'], {relativeTo: this.route})
-  }
-
-  ngOnInit() {
-    this.user = {login:'', pass:''};
-    this.buildForm();
   }
 
   buildForm() {

@@ -19,12 +19,6 @@ export class AuthLogoutComponent implements OnInit {
     private authService: AuthenticationService,
   ) {}
 
-  onLogOutClick() {
-    this.authService
-      .logout()
-      .subscribe(() => this.router.navigate(['/authentication'], { relativeTo: this.route }))
-  }
-
   ngOnInit() {
     this.user = {
       login: '',
@@ -33,6 +27,12 @@ export class AuthLogoutComponent implements OnInit {
     this.authService
       .getCurrentUser()
       .subscribe((user) => this.user = user);
+  }
+
+  onLogOutClick() {
+    this.authService
+      .logout()
+      .subscribe(() => this.router.navigate(['/authentication'], { relativeTo: this.route }))
   }
 
 }

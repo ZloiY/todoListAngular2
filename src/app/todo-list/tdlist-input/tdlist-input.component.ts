@@ -6,7 +6,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   templateUrl: 'tdlist-input.component.html',
   styleUrls: ['tdlist-input.component.scss'],
 })
-export class TodoListInputComponent implements OnInit{
+export class TodoListInputComponent implements OnInit {
+
+  ngOnInit() {
+    this.buildForm();
+  }
 
   @Output() onAdd = new EventEmitter<string>();
   taskForm: FormGroup;
@@ -26,10 +30,6 @@ export class TodoListInputComponent implements OnInit{
     if (event.keyCode === 13) {
       this.onAddBtnClick((<HTMLInputElement>event.target));
     }
-  }
-
-  ngOnInit() {
-    this.buildForm();
   }
 
   buildForm() {

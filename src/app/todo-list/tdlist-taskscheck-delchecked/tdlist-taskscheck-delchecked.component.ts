@@ -7,6 +7,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class TodoListToggleTasksDelChecked implements OnInit {
 
+  ngOnInit() {
+    this.allCheckbox = false;
+  }
+
   @Output() onCheckUncheck = new EventEmitter<boolean>();
   @Output() onDelChecked = new EventEmitter();
   allCheckbox: boolean;
@@ -18,10 +22,6 @@ export class TodoListToggleTasksDelChecked implements OnInit {
 
   onDelCheckedClick() {
     this.onDelChecked.emit();
-    this.allCheckbox = false;
-  }
-
-  ngOnInit() {
     this.allCheckbox = false;
   }
 

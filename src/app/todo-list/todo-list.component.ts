@@ -12,6 +12,18 @@ import { TodoListService } from './todo-list.service';
 })
 
 export class TodoListComponent implements OnInit {
+
+  ngOnInit() {
+    this.tasks = [];
+    this.tdListService
+      .getTasks()
+      .subscribe(tasks => {
+        this.tasks = tasks;
+        this.getActiveTasks();
+        this.onAll();
+      });
+  }
+
   task: Task;
   tasks: Task[];
   visibleTasks: Task[];
@@ -105,17 +117,6 @@ export class TodoListComponent implements OnInit {
         break;
       }
     }
-  }
-
-  ngOnInit() {
-    this.tasks = [];
-    this.tdListService
-      .getTasks()
-      .subscribe(tasks => {
-        this.tasks = tasks;
-        this.getActiveTasks();
-        this.onAll();
-      });
   }
 
 }
