@@ -95,15 +95,19 @@ input:focus {
   outline: none;
 }
 
+button:focus {
+  outline: none;
+}
+
 :focus::-webkit-input-placeholder {
-  text-indent: 500px;
-  transition: text-indent 0.6s ease;
+  text-indent: 100%;
+  transition: text-indent 0.4s ease;
 }
 
 ::-webkit-input-placeholder {
   color: $textColor;
   text-indent: 0px;
-  transition: text-indent 0.6s ease;
+  transition: text-indent 0.4s ease;
 }
 
 .alert-name {

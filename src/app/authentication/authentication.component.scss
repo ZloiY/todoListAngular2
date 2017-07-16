@@ -91,11 +91,6 @@ $shadowColor: rgba(18, 33, 36, 0.89);
   border-width: 1px;
 }
 
-.login-registration {
-  position: absolute;
-  bottom: 0;
-}
-
 .login-btn:hover,
 .registration-btn:hover {
   @include btn-hover-style;
@@ -123,7 +118,7 @@ button:focus {
 }
 
 :focus::-webkit-input-placeholder {
-  text-indent: 600px;
+  text-indent: 100%;
   transition: text-indent 0.4s ease;
 }
 

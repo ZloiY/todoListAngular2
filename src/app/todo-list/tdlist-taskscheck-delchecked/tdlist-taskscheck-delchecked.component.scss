@@ -69,6 +69,7 @@ $cursorType: pointer;
 .del-checked-btn:active {
   @include btn-active-style;
 }
-input:focus {
+
+button:focus {
   outline: none;
 }

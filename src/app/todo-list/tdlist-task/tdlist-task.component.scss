@@ -1,5 +1,5 @@
 $textColor: rgb(231, 231, 231);
-$backgroundColor: rgba(191, 75, 26, 0.83);
+$backgroundColor: rgba(170, 184, 192, 0.56);
 $btnBackgroundHoverColor: #527df4;
 $inputBackgroundColor: rgb(50, 69, 133);
 $footerBackgroundColor: rgb(50, 69, 133);
@@ -62,21 +62,26 @@ $cursorType: pointer;
 }
 
 .task-name {
-  display: inline;
+  display: inline-block;
+  text-align: center;
+  width: 350px;
   position: fixed;
-  left: 50%;
-  right: 50%;
+  right: 35%;
   margin-top: 10px;
   text-decoration: none;
+  white-space: nowrap;
   user-select: none;
 }
 
 .task-name-complete {
-  display: inline;
+  display: inline-block;
+  text-align: center;
+  width: 350px;
   position: fixed;
-  left: 50%;
-  right: 50%;  margin-top: 10px;
+  right: 35%;
+  margin-top: 10px;
   text-decoration: line-through;
+  white-space: nowrap;
   user-select: none;
 }
 
@@ -103,6 +108,7 @@ $cursorType: pointer;
 
 .task-list-element {
   display: block;
+  background-color: $backgroundColor;
   text-align: center;
   color: $textColor;
   height: 45px;
@@ -111,12 +117,7 @@ $cursorType: pointer;
 }
 
 .task-list-element:hover {
-  background-color: transparent;
   @include border-style;
-}
-
-.task-list-element:active {
-  @include btn-active-style;
 }
 
 .task-checkbox {
