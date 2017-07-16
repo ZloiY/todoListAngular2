@@ -4,11 +4,11 @@ import { environment } from '../../environments/environment';
 
 import { Observable } from 'rxjs';
 
-import { AuthenticationService } from '../authentication/shared/authentication.service';
-import { Task } from '../todo-list/shared/task';
+import { AuthenticationService } from '../authentication/authentication.service';
+import { Task } from './shared/task';
 
 @Injectable()
-export class CoreService {
+export class TodoListService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
   private params = new URLSearchParams();
@@ -43,7 +43,6 @@ export class CoreService {
     const url = `${environment.serverUrls.taskUrl}/${taskId}`;
     return this.http
       .delete(url,  {headers: this.headers, search: this.params})
-      .map(() => null)
       .catch(this.handleError);
   }
 
@@ -56,7 +55,6 @@ export class CoreService {
     };
     return this.http
       .put(url, updateTask, {headers: this.headers, search: this.params})
-      .map(() => null)
       .catch(this.handleError);
   }
 
