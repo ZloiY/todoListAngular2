@@ -1,5 +1,5 @@
 import { ActiveTasksPipe } from './active-tasks.pipe';
-import { Task } from './shared/task';
+import { Task } from '../core/task.model';
 
 describe('Active tasks pipe', () => {
   const activeTasksPipe = new ActiveTasksPipe();

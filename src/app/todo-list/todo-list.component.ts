@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ActiveTasksPipe } from './active-tasks.pipe';
-import { CompleteTasksPipe } from './complete-tasks.pipe';
-import { Task } from './shared/task';
+import { ActiveTasksPipe } from '../shared/active-tasks.pipe';
+import { CompleteTasksPipe } from '../shared/complete-tasks.pipe';
+import { Task } from '../core/task.model';
 import { TodoListService } from './todo-list.service';
 
 @Component({

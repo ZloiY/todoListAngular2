@@ -3,8 +3,7 @@ import { Http, Headers, URLSearchParams } from '@angular/http';
 import { environment } from '../../environments/environment';
 
 import { Observable } from 'rxjs';
-
-import { User } from './user';
+import {User} from "../core/user.model";
 
 @Injectable()
 export class AuthenticationService implements OnInit {

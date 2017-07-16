@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 
 import { AuthenticationService } from '../authentication/authentication.service';
-import { Task } from './shared/task';
+import { Task } from '../core/task.model';
 
 @Injectable()
 export class TodoListService {

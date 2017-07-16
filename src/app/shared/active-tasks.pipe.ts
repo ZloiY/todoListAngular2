@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Task } from './shared/task';
+import { Task } from '../core/task.model';
 
 @Pipe({
   name: 'activeTasks',

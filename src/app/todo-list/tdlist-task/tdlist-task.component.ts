@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Task } from '../shared/task';
+import { Task } from '../../core/task.model';
 import { trigger, state, style, transition, animate, keyframes } from "@angular/animations";
 
 @Component({

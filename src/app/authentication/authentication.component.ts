@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { AuthenticationService } from './authentication.service';
-import { User } from './user';
+import { User } from '../core/user.model';
 
 @Component({
   selector: 'authentication',
@@ -69,11 +69,15 @@ export class AuthenticationComponent implements OnInit {
     for (const field in this.formErrors) {
       this.formErrors[field] = '';
       const control = form.get(field);
-      if (control && control.dirty && !control.valid) {
-        const messages = this.validationMessages[field];
-        for (const key in control.errors) {
-          this.formErrors[field] += messages[key] + ' ';
-        }
+      this.controlCheck(control, field);
+    }
+  }
+
+  controlCheck(control, field) {
+    if (control && control.dirty && !control.valid) {
+      const messages = this.validationMessages[field];
+      for (const key in control.errors) {
+        this.formErrors[field] += messages[key] + ' ';
       }
     }
   }

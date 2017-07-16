@@ -1,5 +1,5 @@
 import { CompleteTasksPipe } from './complete-tasks.pipe';
-import { Task } from './shared/task';
+import { Task } from '../core/task.model';
 
 describe('Complete tasks pipe', () => {
   const completeTasksPipe = new CompleteTasksPipe();

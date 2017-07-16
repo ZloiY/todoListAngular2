@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { AuthenticationService } from '../authentication.service';
-import { User } from '../user';
+import { AuthenticationService } from "../../authentication/authentication.service";
+import { User } from '../../core/user.model';
 
 @Component({
   selector: 'auth-logout',
