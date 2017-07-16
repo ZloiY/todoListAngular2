@@ -1,15 +1,11 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonModule } from '@angular/common';
-import { FormsModule }   from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { AuthenticationModule } from '../authentication/authentication.module';
 import { ActiveTasksPipe } from './active-tasks.pipe';
 import { CompleteTasksPipe } from './complete-tasks.pipe';
 import { CoreModule } from '../core/core.module';
-import { CoreService } from '../core/core.service';
+import { TodoListService } from './todo-list.service';
 import { TodoListComponent } from './todo-list.component';
 import { TodoListInputComponent } from './tdlist-input/tdlist-input.component';
 import { TodoListSortComponent } from './tdlist-sort/tdlist-sort.component';
@@ -21,10 +17,6 @@ import { TodoListToggleTasksDelChecked } from './tdlist-taskscheck-delchecked/td
     AuthenticationModule,
     BrowserAnimationsModule,
     CoreModule,
-    CommonModule,
-    FormsModule,
-    HttpModule,
-    ReactiveFormsModule
   ],
   declarations: [
     TodoListComponent,
@@ -32,10 +24,11 @@ import { TodoListToggleTasksDelChecked } from './tdlist-taskscheck-delchecked/td
     TodoListSortComponent,
     TodoListTaskElementComponent,
     TodoListToggleTasksDelChecked,
+    TodoListService,
   ],
-  exports: [ TodoListComponent ],
+  exports: [TodoListComponent],
   providers: [
-    CoreService,
+    TodoListService,
     ActiveTasksPipe,
     CompleteTasksPipe,
   ]
