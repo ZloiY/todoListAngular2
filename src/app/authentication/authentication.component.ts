@@ -28,7 +28,7 @@ export class AuthenticationComponent implements OnInit {
   }
 
   logging(login, password) {
-    if (this.formErrors.pass && this.formErrors.login) {
+    if (this.formErrors.pass || this.formErrors.login || login.length === 0 || password.length === 0) {
       return;
     }
     this.user.login = login;
@@ -54,10 +54,8 @@ export class AuthenticationComponent implements OnInit {
           Validators.minLength(4),
         ]]
     });
-
     this.userForm.valueChanges
       .subscribe(data => this.onValueChanged(data));
-
     this.onValueChanged()
   }
 
