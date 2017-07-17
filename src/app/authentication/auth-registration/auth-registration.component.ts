@@ -27,9 +27,11 @@ export class AuthRegistrationComponent implements OnInit {
     this.buildForm();
   }
 
-  registration(login, password) {
-    if ((this.formErrors.login || this.formErrors.pass || this.formErrors.repPass) ||
-      (login.length === 0 || password.length === 0)) {
+  registration(login, password, repPass) {
+    if (
+      (this.formErrors.login || this.formErrors.pass || this.formErrors.repPass) ||
+      (login.length === 0 || password.length === 0 || repPass.length === 0)
+    ) {
       return;
     }
     this.user.login = login;
