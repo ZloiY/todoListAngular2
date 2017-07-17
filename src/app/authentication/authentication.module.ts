@@ -9,6 +9,7 @@ import { AuthRegistrationComponent } from "./auth-registration/auth-registration
 import { AuthenticationComponent } from './authentication.component';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { AuthenticationService } from './authentication.service';
+import { AuthLogoutComponent } from './auth-logout/auth-logout.component';
 
 @NgModule({
   imports: [
@@ -21,9 +22,11 @@ import { AuthenticationService } from './authentication.service';
   declarations: [
     AuthenticationComponent,
     AuthRegistrationComponent,
+    AuthLogoutComponent,
   ],
   exports: [
     AuthenticationComponent,
+    AuthLogoutComponent,
   ],
   providers: [
     AuthGuard,
