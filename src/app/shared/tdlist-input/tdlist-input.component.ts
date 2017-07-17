@@ -19,8 +19,8 @@ export class TodoListInputComponent implements OnInit {
 
   onAddBtnClick(taskInput) {
     const taskName = (<HTMLInputElement>taskInput);
-    if (taskName.value.length === 0) {
-      return
+    if (taskName.value.length === 0 || this.formErrors.taskName) {
+      return;
     }
     this.onAdd.emit(taskName.value);
     taskName.value = '';
@@ -40,10 +40,8 @@ export class TodoListInputComponent implements OnInit {
           Validators.maxLength(50),
         ]],
     });
-
     this.taskForm.valueChanges
       .subscribe(data => this.onValueChanged(data));
-
     this.onValueChanged()
   }
 
@@ -52,7 +50,6 @@ export class TodoListInputComponent implements OnInit {
       return;
     }
     const form = this.taskForm;
-
     for (const field in this.formErrors) {
       this.formErrors[field] = '';
       const control = form.get(field);
