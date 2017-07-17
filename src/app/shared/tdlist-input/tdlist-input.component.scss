@@ -111,6 +111,8 @@ button:focus {
 }
 
 .alert-name {
+  display: inline-block;
+  width: 300px;
   font: {
     family: 'Calibri Light';
     size: 13px;
@@ -118,7 +120,7 @@ button:focus {
   }
   color: $textColor;
   position: absolute;
-  left: 47%;
+  left: 42%;
   top: 75%;
 };
 
