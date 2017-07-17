@@ -32,6 +32,10 @@ export class TodoListInputComponent implements OnInit {
     }
   }
 
+  onInputBlur() {
+    this.formErrors = { 'taskName': '' };
+  }
+
   buildForm() {
     this.taskForm = this.formBuilder.group({
       'taskName':['',
