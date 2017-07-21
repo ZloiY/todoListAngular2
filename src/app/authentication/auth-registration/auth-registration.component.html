@@ -1,6 +1,6 @@
 <div>
-  <h1 class="title-style">Registration</h1>
-  <form [formGroup]="registrationForm" class="registration-form">
+  <form [formGroup]="registrationForm" class="authentication-form">
+    <h1 class="title-style">Registration</h1>
     <input size="50" class="login" type="email" placeholder="Enter your email" formControlName="login" #login>
     <div *ngIf="formErrors.login" class="alert">{{ formErrors.login }}</div>
     <input size="50" class="password" type="password" placeholder="Enter your password" formControlName="pass" #password>
@@ -8,6 +8,8 @@
     <input size="50" class="password" type="password" placeholder="Repeat password" formControlName="repPass" #repPass>
     <div *ngIf="formErrors.repPass" class="alert">{{ formErrors.repPass }}</div>
     <div *ngIf="registrationForm.hasError('mismatchedPasswords')" class="alert">Passwords don't match.</div>
-    <button class="registration-btn" (click)="registration(login.value, password.value, repPass.value)">Registration</button>
+    <div>
+      <button class="registration-btn" (click)="registration(login.value, password.value, repPass.value)">Registration</button>
+    </div>
   </form>
 </div>

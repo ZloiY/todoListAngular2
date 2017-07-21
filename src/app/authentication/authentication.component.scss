@@ -41,15 +41,13 @@ $shadowColor: rgba(18, 33, 36, 0.89);
 
 .title-style {
   @include title-text-style;
-  position: absolute;
-  left: 68%;
 }
 
-.registration-label {
+.authentication-label {
   @include text-style;
 }
 
-.registration-form {
+.authentication-form {
   @include text-style;
   border: hidden;
   background-color: transparent;
@@ -58,8 +56,8 @@ $shadowColor: rgba(18, 33, 36, 0.89);
   position: absolute;
   height: 400px;
   width: 31%;
-  top: 23%;
-  left: 65%;
+  top: 20%;
+  right: 15%;
 }
 
 .login,

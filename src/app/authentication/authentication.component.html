@@ -1,7 +1,7 @@
 <div>
-  <h1 class="title-style">Welcome to greatest to do list!</h1>
-  <div class="registration-form">
-    <label class="registration-label">Enter your email and password</label>
+  <div class="authentication-form">
+    <h1 class="title-style">Welcome to greatest to do list!</h1>
+    <label class="authentication-label">Enter your email and password</label>
     <form [formGroup]="userForm">
       <input size="50" class="login" formControlName="login" type="email" placeholder="Enter your email" #login>
       <div *ngIf="formErrors.login" class="alert">

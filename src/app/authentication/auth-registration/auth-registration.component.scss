@@ -41,11 +41,9 @@ $shadowColor: rgba(18, 33, 36, 0.89);
 
 .title-style {
   @include title-text-style;
-  position: absolute;
-  left: 75%;
 }
 
-.registration-label {
+.authentication-label {
   font: {
     family: 'Calibri Light';
     size: 20px;
@@ -53,7 +51,7 @@ $shadowColor: rgba(18, 33, 36, 0.89);
   }
 }
 
-.registration-form {
+.authentication-form {
   @include text-style;
   border: hidden;
   background-color: transparent;
@@ -62,8 +60,8 @@ $shadowColor: rgba(18, 33, 36, 0.89);
   position: absolute;
   height: 400px;
   width: 31%;
-  top: 10%;
-  left: 65%;
+  top: 20%;
+  right: 15%;
 }
 
 .login,
@@ -82,12 +80,11 @@ $shadowColor: rgba(18, 33, 36, 0.89);
   color: $backgroundColor;
 }
 
-.login-btn,
 .registration-btn {
   @include border-style;
   @include text-style;
   color: $textColor;
-  display: inline;
+  display: inline-block;
   padding: 5px 8px;
   margin: 10px 25px;
   background-color: transparent;
@@ -100,7 +97,6 @@ $shadowColor: rgba(18, 33, 36, 0.89);
   bottom: 0;
 }
 
-.login-btn:hover,
 .registration-btn:hover {
   @include btn-hover-style;
 }
