@@ -55,9 +55,8 @@ $shadowColor: rgba(18, 33, 36, 0.89);
   display: block;
   position: absolute;
   height: 400px;
-  width: 31%;
-  top: 20%;
-  right: 15%;
+  width: 500px;
+  right: 150px;
 }
 
 .login,
@@ -81,7 +80,6 @@ $shadowColor: rgba(18, 33, 36, 0.89);
   @include border-style;
   @include text-style;
   color: $textColor;
-  display: inline;
   padding: 5px 8px;
   margin: 10px 25px;
   background-color: transparent;

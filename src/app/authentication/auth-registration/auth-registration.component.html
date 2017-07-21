@@ -1,5 +1,5 @@
 <div>
-  <form [formGroup]="registrationForm" class="authentication-form">
+  <form [formGroup]="registrationForm" class="registration-form">
     <h1 class="title-style">Registration</h1>
     <input size="50" class="login" type="email" placeholder="Enter your email" formControlName="login" #login>
     <div *ngIf="formErrors.login" class="alert">{{ formErrors.login }}</div>

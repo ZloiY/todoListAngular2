@@ -43,7 +43,7 @@ $shadowColor: rgba(18, 33, 36, 0.89);
   @include title-text-style;
 }
 
-.authentication-label {
+.registration-label {
   font: {
     family: 'Calibri Light';
     size: 20px;
@@ -51,7 +51,7 @@ $shadowColor: rgba(18, 33, 36, 0.89);
   }
 }
 
-.authentication-form {
+.registration-form {
   @include text-style;
   border: hidden;
   background-color: transparent;
@@ -59,9 +59,8 @@ $shadowColor: rgba(18, 33, 36, 0.89);
   display: block;
   position: absolute;
   height: 400px;
-  width: 31%;
-  top: 20%;
-  right: 15%;
+  width: 500px;
+  right: 150px;
 }
 
 .login,
