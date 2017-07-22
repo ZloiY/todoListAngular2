@@ -1,0 +1,13 @@
+$textColor: rgb(231, 231, 231);
+
+:host {
+  position: absolute;
+  font-family: 'MV Boli';
+  font-size: 15px;
+  font-style: normal;
+  color: $textColor;
+  height: 100%;
+  width: 100%;
+  background: url('http://localhost:4200/assets/backgroung_picture.jpg') no-repeat;
+  background-size: cover;
+}

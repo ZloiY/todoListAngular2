@@ -1,13 +1,9 @@
-$textColor: rgb(231, 231, 231);
-$backgroundColor: rgba(191, 75, 26, 0.83);
-
-.task-list-base {
-  position: relative;
-  font-family: 'MV Boli';
-  font-size: 15px;
-  font-style: normal;
-  color: $textColor;
-  background-image: url('http://localhost:4200/assets/backgroung_picture.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+body {
+  position: absolute;
+  overflow: hidden;
+  border: none;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
