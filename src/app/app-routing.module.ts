@@ -8,7 +8,7 @@ export const routes: Routes = [
   { path: '', redirectTo: 'authentication', pathMatch: 'full' },
   { path: 'todolist', component: TodoListComponent, canActivate: [AuthGuard] },
   { path: '^registration|**', redirectTo: 'authentication' },
-  { path: '**', canActivate: [AuthGuard], redirectTo: 'todolist', pathMatch: 'full' },
+  { path: '**', canActivate: [AuthGuard], redirectTo: 'todolist' },
 ];
 
 @NgModule({

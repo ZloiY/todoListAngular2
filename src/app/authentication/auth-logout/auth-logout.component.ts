@@ -32,7 +32,7 @@ export class AuthLogoutComponent implements OnInit {
   onLogOutClick() {
     this.authService
       .logout()
-      .subscribe(() => this.router.navigate(['/authentication'], { relativeTo: this.route }))
+      .subscribe(() => this.router.navigate([''], { relativeTo: this.route }))
   }
 
 }

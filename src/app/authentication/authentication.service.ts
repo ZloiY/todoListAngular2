@@ -36,7 +36,7 @@ export class AuthenticationService implements OnInit {
     return this.http
       .post(environment.serverUrls.logoutUrl, null, {headers: this.headers, search: this.params})
       .map(() => {
-        localStorage.setItem('token', '');
+        localStorage.clear();
       })
       .catch(this.handleError)
   }
