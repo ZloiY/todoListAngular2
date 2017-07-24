@@ -8,14 +8,10 @@ import {User} from "../core/user.model";
 @Injectable()
 export class AuthenticationService implements OnInit {
 
-  ngOnInit() {
-    this.loggedIn = false;
-  }
+  ngOnInit() {}
 
   private headers = new Headers({'Content-Type': 'application/json'});
   private params = new URLSearchParams();
-  private token: string;
-  loggedIn: boolean;
   
   constructor(private http: Http) {}
 
@@ -30,9 +26,8 @@ export class AuthenticationService implements OnInit {
     return this.http
       .post(environment.serverUrls.authenticationUrl, user, {headers: this.headers})
       .map((token) => {
-      this.loggedIn = true;
-      this.token = token.json() as string;
-      this.params.set('token', this.token);
+      localStorage.setItem('token', token.json() as string);
+      this.params.set('token', token.json() as string);
       })
       .catch(this.handleError);
   }
@@ -41,20 +36,27 @@ export class AuthenticationService implements OnInit {
     return this.http
       .post(environment.serverUrls.logoutUrl, null, {headers: this.headers, search: this.params})
       .map(() => {
-        this.loggedIn = false;
-        this.token = '';
+        localStorage.setItem('token', '');
       })
       .catch(this.handleError)
   }
 
   getCurrentUser(): Observable<User> {
+    this.params.set('token', localStorage.getItem('token'));
     return this.http.get(environment.serverUrls.userUrl, {search: this.params})
       .map((user) => user.json() as User)
       .catch(this.handleError)
   }
 
   getAccessesToken() {
-    return this.token;
+    return localStorage.getItem('token');
+  }
+
+  isLoggedIn() {
+    if (localStorage.getItem('token')) {
+      return true;
+    }
+    return false;
   }
 
   private handleError(error: any): Observable<any> {

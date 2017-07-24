@@ -8,6 +8,6 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthenticationService) {}
 
   canActivate(): boolean {
-    return this.authService.loggedIn;
+    return this.authService.isLoggedIn();
   }
 }
