@@ -8,7 +8,9 @@ import {User} from "../core/user.model";
 @Injectable()
 export class AuthenticationService implements OnInit {
 
-  ngOnInit() {}
+  ngOnInit() {
+    localStorage.setItem('token', '');
+  }
 
   private headers = new Headers({'Content-Type': 'application/json'});
   private params = new URLSearchParams();
