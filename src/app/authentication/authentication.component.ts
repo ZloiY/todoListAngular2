@@ -37,6 +37,12 @@ export class AuthenticationComponent implements OnInit {
       .subscribe(() => this.router.navigate(['/todolist'], {relativeTo: this.route}));
   }
 
+  onEnterLogin(event, login, password) {
+    if (event.keyCode === 13) {
+      this.logging(login, password);
+    }
+  }
+
   registration() {
     this.router.navigate(['/registration'], {relativeTo: this.route})
   }
