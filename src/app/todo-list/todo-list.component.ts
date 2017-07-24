@@ -15,6 +15,7 @@ export class TodoListComponent implements OnInit {
 
   ngOnInit() {
     this.tasks = [];
+    this.visibleTasks = [];
     this.tdListService
       .getTasks()
       .subscribe(tasks => {
