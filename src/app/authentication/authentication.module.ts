@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AuthGuard } from './auth-guard.service';
+import { AuthActivate } from './auth-activate.service';
 import { AuthRegistrationComponent } from "./auth-registration/auth-registration.component";
 import { AuthenticationComponent } from './authentication.component';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
@@ -30,6 +31,7 @@ import { AuthLogoutComponent } from './auth-logout/auth-logout.component';
   ],
   providers: [
     AuthGuard,
+    AuthActivate,
     AuthenticationService
   ]
 })
