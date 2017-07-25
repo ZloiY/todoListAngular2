@@ -20,10 +20,7 @@ export class AuthLogoutComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.user = {
-      login: '',
-      pass:'',
-    };
+    this.user = new User();
     this.authService
       .getCurrentUser()
       .subscribe((user) => this.user = user);
