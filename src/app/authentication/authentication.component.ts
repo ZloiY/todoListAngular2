@@ -12,6 +12,11 @@ import { User } from '../core/user.model';
 })
 export class AuthenticationComponent implements OnInit {
 
+  ngOnInit() {
+    this.user = new User();
+    this.buildForm();
+  }
+
   private user: User;
   userForm: FormGroup;
 
@@ -21,11 +26,6 @@ export class AuthenticationComponent implements OnInit {
     private authService: AuthenticationService,
     private formBuilder: FormBuilder,
   ) {}
-
-  ngOnInit() {
-    this.user = {login:'', pass:''};
-    this.buildForm();
-  }
 
   logging(login, password) {
     if (this.formErrors.pass || this.formErrors.login || login.length === 0 || password.length === 0) {
