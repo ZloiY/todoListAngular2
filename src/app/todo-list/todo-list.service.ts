@@ -28,11 +28,7 @@ export class TodoListService {
   }
 
   addTask(taskName: string): Observable<Task> {
-    const task = {
-      id: 0,
-      name: taskName,
-      complete: false,
-    };
+    const task = new Task(0, taskName, false);
     return this.http
       .post(environment.serverUrls.taskUrl, task, {headers: this.headers, search: this.params})
       .map(res => res.json() as Task)
@@ -46,15 +42,24 @@ export class TodoListService {
       .catch(this.handleError);
   }
 
+  deleteTasks(): Observable<Task> {
+    return this.http
+      .delete(environment.serverUrls.tasksUrl, {headers: this.headers, search: this.params})
+      .catch(this.handleError);
+  }
+
   updateTask(task: Task): Observable<Task> {
     const url = `${environment.serverUrls.taskUrl}/${task.id}`;
-    const updateTask = {
-      id: task.id,
-      name: task.name,
-      complete: task.complete,
-    };
+    const updateTask = new Task(task.id, task.name, task.complete);
     return this.http
       .put(url, updateTask, {headers: this.headers, search: this.params})
+      .catch(this.handleError);
+  }
+
+  updateTasks(complete): Observable<Task> {
+    const updateTask = new Task(0, '', complete);
+    return this.http
+      .put(environment.serverUrls.tasksUrl, updateTask, {headers: this.headers, search: this.params})
       .catch(this.handleError);
   }
 
