@@ -3,7 +3,7 @@ import { Http, Headers, URLSearchParams } from '@angular/http';
 import { environment } from '../../environments/environment';
 
 import { Observable } from 'rxjs';
-import {User} from "../core/user.model";
+import { User } from '../core/user.model';
 
 @Injectable()
 export class AuthenticationService implements OnInit {
@@ -18,7 +18,6 @@ export class AuthenticationService implements OnInit {
   registration(user: User): Observable<User> {
     return this.http
       .post(environment.serverUrls.registrationUrl, user, {headers: this.headers})
-      .map(() => null)
       .catch(this.handleError);
   }
 
@@ -26,8 +25,8 @@ export class AuthenticationService implements OnInit {
     return this.http
       .post(environment.serverUrls.authenticationUrl, user, {headers: this.headers})
       .map((token) => {
-      sessionStorage.setItem('token', token.json() as string);
-      this.params.set('token', token.json() as string);
+        sessionStorage.setItem('token', token.json() as string);
+        this.params.set('token', token.json() as string);
       })
       .catch(this.handleError);
   }
