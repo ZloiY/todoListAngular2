@@ -23,15 +23,12 @@ export class AuthRegistrationComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.user = {login:'', pass:''};
+    this.user = new User();
     this.buildForm();
   }
 
   registration(login, password, repPass) {
-    if (
-      (this.formErrors.login || this.formErrors.pass || this.formErrors.repPass) ||
-      (login.length === 0 || password.length === 0 || repPass.length === 0)
-    ) {
+    if (this.formErrorsCheck() || this.loginPassCheck(login, password, repPass)) {
       return;
     }
     this.user.login = login;
@@ -95,6 +92,20 @@ export class AuthRegistrationComponent implements OnInit {
         this.formErrors[field] += messages[key] + ' ';
       }
     }
+  }
+
+  formErrorsCheck() {
+    if (this.formErrors.login || this.formErrors.pass || this.formErrors.repPass) {
+      return true;
+    }
+    return false;
+  }
+
+  loginPassCheck(login, pass, repPass) {
+    if (login.length === 0 || pass.length === 0 || repPass.length === 0) {
+      return true;
+    }
+    return false;
   }
 
   formErrors = {
