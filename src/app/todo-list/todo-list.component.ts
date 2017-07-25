@@ -28,8 +28,13 @@ export class TodoListComponent implements OnInit {
   task: Task;
   tasks: Task[];
   visibleTasks: Task[];
-  activeItems: number;
-  currentFilter: number;
+  activeItems = 0;
+  currentFilter: any;
+  tasksFilter = {
+    showAllTasks: function() { this.onAll() },
+    showCompleteTasks: function() { this.onComplete() },
+    showActiveTasks: function() { this.onActive() },
+  };
 
   constructor(
     private tdListService: TodoListService,
@@ -43,23 +48,23 @@ export class TodoListComponent implements OnInit {
       .subscribe(task => {
         this.tasks.push(task);
         this.getActiveTasks();
-        this.refreshVisibleTasks();
+        this.currentFilter();
       });
   }
 
   onAll() {
-    this.currentFilter = 0;
-    this.refreshVisibleTasks();
+    this.currentFilter = this.tasksFilter.showAllTasks;
+    this.visibleTasks = this.tasks;
   }
 
   onComplete() {
-    this.currentFilter = 1;
-    this.refreshVisibleTasks();
+    this.currentFilter = this.tasksFilter.showCompleteTasks;
+    this.visibleTasks = this.completeTasksPipe.transform(this.tasks);
   }
 
   onActive() {
-    this.currentFilter = 2;
-    this.refreshVisibleTasks();
+    this.currentFilter = this.tasksFilter.showActiveTasks;
+    this.visibleTasks = this.activeTasksPipe.transform(this.tasks);
   }
 
   onCheck(task: Task) {
@@ -67,7 +72,7 @@ export class TodoListComponent implements OnInit {
       .updateTask(task)
       .subscribe(() => {
         this.getActiveTasks();
-        this.refreshVisibleTasks();
+        this.currentFilter();
       });
   }
 
@@ -77,47 +82,34 @@ export class TodoListComponent implements OnInit {
       .subscribe(() => {
       this.tasks = this.tasks.filter((task) => task !== closeTask);
       this.getActiveTasks();
-      this.refreshVisibleTasks();
+      this.currentFilter();
     });
   }
 
   onCheckUncheck(allCheckbox: boolean) {
-    this.tasks.forEach((task) => {
-      task.complete = !allCheckbox;
-      this.tdListService
-        .updateTask(task)
-        .subscribe(() => {
-          this.getActiveTasks();
-          this.refreshVisibleTasks();
+    this.tdListService
+      .updateTasks(!allCheckbox)
+      .subscribe(() => {
+        this.tasks.forEach((task) => {
+          task.complete = !allCheckbox;
         });
-    });
+        this.getActiveTasks();
+        this.currentFilter();
+      });
   }
 
   onDelChecked() {
-    this.tasks = this.tasks.filter((task) => !task.complete);
-    this.refreshVisibleTasks();
+    this.tdListService
+      .deleteTasks()
+      .subscribe(() => {
+        this.tasks = this.tasks.filter((task) => !task.complete);
+        this.currentFilter();
+      });
   }
 
   getActiveTasks() {
     const activeTasks = this.tasks.filter((task) => !task.complete);
     this.activeItems = activeTasks.length;
-  }
-
-  refreshVisibleTasks() {
-    switch(this.currentFilter) {
-      case 0: {
-        this.visibleTasks = this.tasks;
-        break;
-      }
-      case 1: {
-        this.visibleTasks = this.completeTasksPipe.transform(this.tasks);
-        break;
-      }
-      case 2: {
-        this.visibleTasks = this.activeTasksPipe.transform(this.tasks);
-        break;
-      }
-    }
   }
 
 }
